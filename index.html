@@ -28,7 +28,7 @@
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0; background: var(--paper); color: var(--ink);
-    font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6;
+    font-family: var(--sans); font-size: 0.9375rem; line-height: 1.6;
   }
   a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 3px; }
   a:hover { text-decoration-thickness: 2px; }
@@ -42,7 +42,7 @@
     display: flex; justify-content: space-between; align-items: center;
     padding-top: 1.5rem; padding-bottom: 1.5rem; gap: 1rem;
   }
-  header.site .mark { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; text-decoration: none; }
+  header.site .mark { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; text-decoration: none; }
   header.site nav { display: flex; gap: 1.25rem; font-size: 0.95rem; flex-wrap: wrap; }
   @media (max-width: 479px) { header.site { flex-direction: column; align-items: flex-start; gap: 0.5rem; } header.site nav { gap: 1rem; } }
   header.site nav a { text-decoration: none; color: var(--ink-soft); }
@@ -57,9 +57,9 @@
   @media (min-width: 860px) { .hero { grid-template-columns: 1.1fr 0.9fr; padding: 5rem 0 6rem; } }
   .hero h1 {
     font-family: var(--serif); font-weight: 500; margin: 0;
-    font-size: clamp(2.75rem, 7vw, 5rem); line-height: 1.02; letter-spacing: -0.02em;
+    font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.02; letter-spacing: -0.02em;
   }
-  .hero .role { font-family: var(--serif); font-size: clamp(1.25rem, 2.4vw, 1.6rem); margin: 1rem 0 1.5rem; color: var(--ink-soft); }
+  .hero .role { font-family: var(--serif); font-size: clamp(1.05rem, 1.9vw, 1.3rem); margin: 1rem 0 1.5rem; color: var(--ink-soft); }
   .hero p.lede { max-width: var(--measure); margin: 0 0 2rem; }
   .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
   .btn {
@@ -87,8 +87,8 @@
   .hero + section { border-top: 0; }
   .sec-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem 3rem; }
   @media (min-width: 860px) { .sec-grid { grid-template-columns: 14rem 1fr; } }
-  h2 { font-family: var(--serif); font-weight: 500; font-size: 1.75rem; line-height: 1.2; margin: 0; }
-  h3 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; margin: 0 0 0.4rem; }
+  h2 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; line-height: 1.2; margin: 0; }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; margin: 0 0 0.4rem; }
   .prose p { max-width: var(--measure); margin: 0 0 1rem; }
 
   .domains { display: grid; grid-template-columns: 1fr; gap: 2rem; }
@@ -129,19 +129,19 @@
   @media (min-width: 640px) { .edu li { grid-template-columns: 9rem 1fr; } }
   .edu .when { color: var(--ink-soft); font-size: 0.95rem; padding-top: 0.2rem; }
   .edu p { margin: 0; color: var(--ink-soft); }
-  h3.sub { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; margin: 0 0 1.25rem; }
+  h3.sub { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; margin: 0 0 1.25rem; }
   .certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1rem; }
   @media (min-width: 640px) { .certs { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1000px) { .certs { grid-template-columns: repeat(3, 1fr); } }
   .certs li { background: var(--paper-deep); padding: 1rem 1.1rem; border-radius: 2px; }
-  .certs strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.05rem; line-height: 1.3; }
+  .certs strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 0.95rem; line-height: 1.3; }
   .certs span { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.2rem; }
 
   .projects { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
   @media (min-width: 640px) { .projects { grid-template-columns: repeat(2, 1fr); } }
   .projects li { border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 2px; padding: 1.25rem 1.25rem 1.4rem; display: flex; flex-direction: column; background: var(--paper); }
   .projects .meta { font-size: 0.875rem; color: var(--ink-soft); margin: 0 0 0.5rem; }
-  .projects h3 { font-size: 1.2rem; line-height: 1.3; margin: 0 0 0.6rem; }
+  .projects h3 { font-size: 1.05rem; line-height: 1.3; margin: 0 0 0.6rem; }
   .projects p.desc { margin: 0 0 1rem; font-size: 0.975rem; }
   .projects .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 1rem; padding: 0; list-style: none; }
   .projects .tags li { border: 0; padding: 0.1rem 0.5rem; background: var(--paper-deep); font-size: 0.8rem; color: var(--ink); display: inline; }
