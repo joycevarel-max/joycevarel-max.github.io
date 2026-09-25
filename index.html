@@ -70,13 +70,17 @@
   .btn.primary:hover { background: transparent; color: var(--ink); }
   .btn:not(.primary):hover { background: var(--ink); color: var(--paper); }
 
-  .sketch { margin: 0; width: 100%; max-width: 34rem; justify-self: center; }
-  .sketch img { width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid var(--line); background: #fff; }
+  .rosette { width: 100%; max-width: 30rem; justify-self: center; aspect-ratio: 1; }
+  .rosette svg { width: 100%; height: 100%; display: block; }
+  .rosette path { fill: none; stroke: var(--gold); stroke-width: 0.45; opacity: 0.8; }
+  .rosette path.inner { stroke: var(--gold-2); opacity: 0.8; }
   @media (max-width: 859px) {
-    .sketch { position: absolute; right: -25%; top: 1.5rem; width: 90%; opacity: 0.18; z-index: 0; pointer-events: none; }
-    .sketch img { border: 0; }
+    .rosette { position: absolute; right: -35%; top: 0; width: 90%; opacity: 0.35; z-index: 0; pointer-events: none; }
     .hero > div:first-child { position: relative; z-index: 1; }
   }
+  .rosette.draw path { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: engrave 2.8s cubic-bezier(.4,0,.2,1) forwards; }
+  @keyframes engrave { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .rosette.draw path { animation: none; stroke-dashoffset: 0; } }
 
   /* ---------- Sections ---------- */
   section { padding: 4rem 0; border-top: 1px solid var(--line); }
@@ -145,7 +149,7 @@
           <a class="btn" href="#parcours">Voir mon parcours</a>
         </div>
       </div>
-      <figure class="sketch"><img src="atelier.webp" width="700" height="492" alt="Dessin au trait d'une équipe réunie autour d'une table de travail"></figure>
+      <div class="rosette" aria-hidden="true"><svg id="rosette" viewBox="-100 -100 200 200"></svg></div>
     </div>
 
     <section id="profil">
@@ -268,5 +272,43 @@
   <footer>Joyce ITOUA, Paris</footer>
 </div>
 
+<script>
+  // Rosace guillochée, dans l'esprit des anciens certificats de titres.
+  (function () {
+    var svg = document.getElementById('rosette');
+    var ns = 'http://www.w3.org/2000/svg';
+    function curve(R, amp, petals, phase, steps) {
+      var d = '';
+      for (var i = 0; i <= steps; i++) {
+        var t = (i / steps) * Math.PI * 2;
+        var r = R + amp * Math.sin(petals * t + phase);
+        var x = r * Math.cos(t), y = r * Math.sin(t);
+        d += (i ? 'L' : 'M') + x.toFixed(2) + ' ' + y.toFixed(2);
+      }
+      return d + 'Z';
+    }
+    var layers = [
+      { R: 78, amp: 14, petals: 18, n: 14, cls: '' },
+      { R: 50, amp: 10, petals: 12, n: 10, cls: 'inner' },
+      { R: 24, amp: 6, petals: 8, n: 8, cls: '' }
+    ];
+    layers.forEach(function (L) {
+      for (var k = 0; k < L.n; k++) {
+        var p = document.createElementNS(ns, 'path');
+        p.setAttribute('d', curve(L.R - k * 0.9, L.amp, L.petals, (k / L.n) * Math.PI, 720));
+        if (L.cls) p.setAttribute('class', L.cls);
+        svg.appendChild(p);
+      }
+    });
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      svg.querySelectorAll('path').forEach(function (p, i) {
+        p.style.setProperty('--len', Math.ceil(p.getTotalLength()));
+        p.style.animationDelay = (i * 0.03) + 's';
+      });
+      svg.parentNode.classList.add('draw');
+    }
+  })();
+</script>
 </body>
 </html>
