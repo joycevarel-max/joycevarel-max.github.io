@@ -147,6 +147,17 @@
   .projects .tags li { border: 0; padding: 0.1rem 0.5rem; background: var(--paper-deep); font-size: 0.8rem; color: var(--ink); display: inline; }
   .projects .result { margin-top: auto; padding-top: 0.9rem; border-top: 1px solid var(--line); color: var(--gold); font-weight: 600; font-size: 0.975rem; }
 
+  .pubs { list-style: none; margin: 0 0 2.5rem; padding: 0; border-top: 1px solid var(--line); }
+  .pubs li { display: grid; grid-template-columns: 1fr; gap: 0.2rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  @media (min-width: 640px) { .pubs li { grid-template-columns: 9rem 1fr; } }
+  .pubs .when { color: var(--ink-soft); font-size: 0.875rem; padding-top: 0.15rem; }
+  .pubs .kind { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--gold); margin: 0 0 0.25rem; }
+  .pubs h3 { font-size: 1.05rem; line-height: 1.35; margin: 0 0 0.35rem; }
+  .pubs h3 a { text-decoration: none; }
+  .pubs h3 a:hover { text-decoration: underline; text-decoration-color: var(--gold); }
+  .pubs p { margin: 0; color: var(--ink-soft); max-width: var(--measure); font-size: 0.925rem; }
+  .pubs .read { display: inline-block; margin-top: 0.45rem; font-size: 0.875rem; font-weight: 500; color: var(--gold); }
+
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.875rem; }
 </style>
 </head>
@@ -159,6 +170,7 @@
       <a href="#profil">Profil</a>
       <a href="#parcours">Expérience</a>
       <a href="#projets">Projets</a>
+      <a href="#publications">Publications</a>
       <a href="#formation">Formation</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -301,6 +313,36 @@
             <p class="result">Contrôles quotidiens automatisés</p>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="sec-grid">
+        <h2>Articles &amp; Publications</h2>
+        <div>
+          <p style="margin:0 0 1.5rem;max-width:var(--measure)">Analyses et retours d’expérience sur la gestion de projet, les marchés de capitaux, la gestion des risques et la data.</p>
+          <ol class="pubs">
+            <!--
+              Pour ajouter un article, copie ce bloc et remplis-le :
+            <li>
+              <div class="when">Date</div>
+              <div>
+                <span class="kind">Article</span>
+                <h3><a href="LIEN" target="_blank" rel="noopener">Titre de l’article</a></h3>
+                <p>Résumé en une ou deux phrases.</p>
+                <a class="read" href="LIEN" target="_blank" rel="noopener">Lire l’article</a>
+              </div>
+            </li>
+            -->
+            <li class="empty">
+              <div class="when">Bientôt</div>
+              <div>
+                <h3>Premiers articles en préparation</h3>
+                <p>Suivez-moi sur <a href="https://www.linkedin.com/in/joyce-itoua" target="_blank" rel="noopener">LinkedIn</a> pour être informé de leur parution.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </section>
 
