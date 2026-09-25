@@ -70,17 +70,37 @@
   .btn.primary:hover { background: transparent; color: var(--ink); }
   .btn:not(.primary):hover { background: var(--ink); color: var(--paper); }
 
-  .rosette { width: 100%; max-width: 30rem; justify-self: center; aspect-ratio: 1; }
-  .rosette svg { width: 100%; height: 100%; display: block; }
-  .rosette path { fill: none; stroke: var(--gold); stroke-width: 0.45; opacity: 0.8; }
-  .rosette path.inner { stroke: var(--gold-2); opacity: 0.8; }
+  .viz { width: 100%; max-width: 32rem; justify-self: center; }
+  .viz svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .viz .frame { fill: var(--paper); stroke: var(--line); }
+  .viz .grid { stroke: var(--line); stroke-width: 0.5; }
+  .viz .gantt { fill: var(--gold-2); }
+  .viz .gantt.done { fill: var(--gold); }
+  .viz .ms { fill: var(--ink); }
+  .viz .today { stroke: var(--ink); stroke-width: 0.8; stroke-dasharray: 2 2; }
+  .viz .wick { stroke: var(--ink-soft); stroke-width: 0.8; }
+  .viz .up { fill: var(--gold); }
+  .viz .down { fill: var(--paper); stroke: var(--gold); stroke-width: 0.9; }
+  .viz .ma { fill: none; stroke: var(--ink); stroke-width: 1.2; stroke-linejoin: round; }
+  .viz .area { fill: var(--gold-2); opacity: 0.35; }
+  .viz .dot { fill: var(--gold); opacity: 0.75; }
+  .viz .fit { stroke: var(--ink); stroke-width: 1; }
+  .viz .bar { fill: var(--gold-2); }
+  .viz .bar.hi { fill: var(--gold); }
+  .viz .kpi { fill: none; stroke: var(--gold); stroke-width: 5; stroke-linecap: round; }
+  .viz .kpi-bg { fill: none; stroke: var(--line); stroke-width: 5; }
   @media (max-width: 859px) {
-    .rosette { position: absolute; right: -35%; top: 0; width: 90%; opacity: 0.35; z-index: 0; pointer-events: none; }
+    .viz { position: absolute; right: -30%; top: 1rem; width: 85%; opacity: 0.22; z-index: 0; pointer-events: none; }
     .hero > div:first-child { position: relative; z-index: 1; }
   }
-  .rosette.draw path { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: engrave 2.8s cubic-bezier(.4,0,.2,1) forwards; }
-  @keyframes engrave { to { stroke-dashoffset: 0; } }
-  @media (prefers-reduced-motion: reduce) { .rosette.draw path { animation: none; stroke-dashoffset: 0; } }
+  .viz.play .grow { transform-box: fill-box; transform-origin: left center; animation: growx .9s cubic-bezier(.3,0,.2,1) both; }
+  .viz.play .rise { transform-box: fill-box; transform-origin: center bottom; animation: growy .8s cubic-bezier(.3,0,.2,1) both; }
+  .viz.play .draw { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 1.6s ease-out forwards; }
+  .viz.play .pop { animation: pop .5s ease-out both; }
+  @keyframes growx { from { transform: scaleX(0); } }
+  @keyframes growy { from { transform: scaleY(0); } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes pop { from { opacity: 0; } }
 
   /* ---------- Sections ---------- */
   section { padding: 4rem 0; border-top: 1px solid var(--line); }
@@ -149,7 +169,7 @@
           <a class="btn" href="#parcours">Voir mon parcours</a>
         </div>
       </div>
-      <div class="rosette" aria-hidden="true"><svg id="rosette" viewBox="-100 -100 200 200"></svg></div>
+      <div class="viz" aria-hidden="true"><svg id="viz" viewBox="0 0 320 300"></svg></div>
     </div>
 
     <section id="profil">
@@ -273,40 +293,73 @@
 </div>
 
 <script>
-  // Rosace guillochée, dans l'esprit des anciens certificats de titres.
+  // Illustration : pilotage de projet (Gantt), marchés (chandeliers) et analyse de données (nuage de points, histogramme, jauge).
   (function () {
-    var svg = document.getElementById('rosette');
-    var ns = 'http://www.w3.org/2000/svg';
-    function curve(R, amp, petals, phase, steps) {
-      var d = '';
-      for (var i = 0; i <= steps; i++) {
-        var t = (i / steps) * Math.PI * 2;
-        var r = R + amp * Math.sin(petals * t + phase);
-        var x = r * Math.cos(t), y = r * Math.sin(t);
-        d += (i ? 'L' : 'M') + x.toFixed(2) + ' ' + y.toFixed(2);
-      }
-      return d + 'Z';
+    var svg = document.getElementById('viz'), ns = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs, parent) {
+      var e = document.createElementNS(ns, tag);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      (parent || svg).appendChild(e); return e;
     }
-    var layers = [
-      { R: 78, amp: 14, petals: 18, n: 14, cls: '' },
-      { R: 50, amp: 10, petals: 12, n: 10, cls: 'inner' },
-      { R: 24, amp: 6, petals: 8, n: 8, cls: '' }
-    ];
-    layers.forEach(function (L) {
-      for (var k = 0; k < L.n; k++) {
-        var p = document.createElementNS(ns, 'path');
-        p.setAttribute('d', curve(L.R - k * 0.9, L.amp, L.petals, (k / L.n) * Math.PI, 720));
-        if (L.cls) p.setAttribute('class', L.cls);
-        svg.appendChild(p);
-      }
+    var seed = 7; function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    var delay = 0; function d(e, step) { e.style.animationDelay = (delay += step) + 's'; return e; }
+
+    // Panneau 1 : planning projet (Gantt)
+    el('rect', { x: 0, y: 0, width: 320, height: 92, rx: 4, class: 'frame' });
+    for (var gx = 20; gx <= 300; gx += 35) el('line', { x1: gx, y1: 10, x2: gx, y2: 82, class: 'grid' });
+    var tasks = [[20, 70, 1], [60, 95, 1], [110, 90, 0], [150, 110, 0], [210, 80, 0]];
+    tasks.forEach(function (t, i) {
+      d(el('rect', { x: t[0], y: 14 + i * 13, width: t[1], height: 8, rx: 2, class: 'gantt grow' + (t[2] ? ' done' : '') }), 0.08);
     });
+    d(el('path', { d: 'M290 70 l5 5 l-5 5 l-5 -5 z', class: 'ms pop' }), 0.1);
+    el('line', { x1: 175, y1: 8, x2: 175, y2: 86, class: 'today' });
+
+    // Panneau 2 : marché (chandeliers + moyenne mobile)
+    el('rect', { x: 0, y: 104, width: 320, height: 104, rx: 4, class: 'frame' });
+    for (var gy = 124; gy <= 194; gy += 23) el('line', { x1: 10, y1: gy, x2: 310, y2: gy, class: 'grid' });
+    var price = 186, pts = [], n = 20;
+    for (var i = 0; i < n; i++) {
+      var x = 20 + i * 14.5, open = price;
+      price += (rnd() - 0.56) * 22; price = Math.max(124, Math.min(192, price));
+      var close = price, hi = Math.min(open, close) - 3 - rnd() * 6, lo = Math.max(open, close) + 3 + rnd() * 6;
+      el('line', { x1: x, y1: hi, x2: x, y2: lo, class: 'wick' });
+      var up = close < open;
+      d(el('rect', { x: x - 3.5, y: Math.min(open, close), width: 7, height: Math.max(2, Math.abs(close - open)), class: (up ? 'up' : 'down') + ' rise' }), 0.03);
+      pts.push([x, (open + close) / 2]);
+    }
+    var ma = pts.map(function (p, i) {
+      var s = pts.slice(Math.max(0, i - 3), i + 1), m = s.reduce(function (a, q) { return a + q[1]; }, 0) / s.length;
+      return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + m.toFixed(1);
+    }).join(' ');
+    var line = el('path', { d: ma, class: 'ma draw' });
+
+    // Panneau 3 : analyse de données (nuage + régression, histogramme, jauge)
+    el('rect', { x: 0, y: 220, width: 138, height: 80, rx: 4, class: 'frame' });
+    for (var j = 0; j < 22; j++) {
+      var sx = 12 + rnd() * 114, sy = Math.max(228, 286 - (sx - 12) * 0.42 - rnd() * 18);
+      d(el('circle', { cx: sx.toFixed(1), cy: sy.toFixed(1), r: 2.2, class: 'dot pop' }), 0.02);
+    }
+    el('line', { x1: 12, y1: 278, x2: 126, y2: 230, class: 'fit' });
+
+    el('rect', { x: 148, y: 220, width: 100, height: 80, rx: 4, class: 'frame' });
+    [14, 26, 40, 52, 44, 30, 18, 9].forEach(function (h, k) {
+      d(el('rect', { x: 157 + k * 11, y: 290 - h, width: 8, height: h, class: 'bar rise' + (k === 3 ? ' hi' : '') }), 0.04);
+    });
+
+    el('rect', { x: 258, y: 220, width: 62, height: 80, rx: 4, class: 'frame' });
+    var cx = 289, cy = 262, r = 20;
+    el('circle', { cx: cx, cy: cy, r: r, class: 'kpi-bg' });
+    var arc = el('circle', { cx: cx, cy: cy, r: r, class: 'kpi draw', transform: 'rotate(-90 ' + cx + ' ' + cy + ')' });
+    var circ = 2 * Math.PI * r;
+    arc.setAttribute('stroke-dasharray', (circ * 0.72).toFixed(1) + ' ' + circ.toFixed(1));
+
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) {
-      svg.querySelectorAll('path').forEach(function (p, i) {
-        p.style.setProperty('--len', Math.ceil(p.getTotalLength()));
-        p.style.animationDelay = (i * 0.03) + 's';
-      });
-      svg.parentNode.classList.add('draw');
+      line.style.setProperty('--len', Math.ceil(line.getTotalLength()));
+      line.style.animationDelay = '0.6s';
+      arc.classList.remove('draw');
+      arc.animate([{ strokeDasharray: '0 ' + circ }, { strokeDasharray: (circ * 0.72) + ' ' + circ }], { duration: 1400, delay: 900, easing: 'ease-out', fill: 'both' });
+      svg.parentNode.classList.add('play');
     }
   })();
 </script>
