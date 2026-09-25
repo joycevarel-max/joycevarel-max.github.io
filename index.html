@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joyce ITOUA</title>
+<meta name="description" content="Joyce ITOUA, actuaire Risk Management : environnement titres, cadrage réglementaire, pilotage de projets risques.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+    --paper: #FFFFFF;
+    --paper-deep: #EAF1FA;
+    --ink: #0F2A4A;
+    --ink-soft: #4A5E78;
+    --line: #D3DEEC;
+    --gold: #2B63B5;
+    --gold-2: #8FB0DB;
+    --focus: #2B63B5;
+    --serif: "Spectral", Georgia, serif;
+    --sans: "Public Sans", system-ui, sans-serif;
+    --measure: 36rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0B1A2E; --paper-deep: #12263F; --ink: #E6EEF8;
+      --ink-soft: #A5B6CC; --line: #25405F; --gold: #7FA7E0; --gold-2: #4E77AE; --focus: #9DBDEB;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0B1A2E; --paper-deep: #12263F; --ink: #E6EEF8;
+    --ink-soft: #A5B6CC; --line: #25405F; --gold: #7FA7E0; --gold-2: #4E77AE; --focus: #9DBDEB;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6;
+  }
+  a { color: inherit; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1rem; }
+  @media (min-width: 640px) { .wrap { padding: 0 2rem; } }
+
+  /* ---------- En-tête ---------- */
+  header.site {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 1.5rem; padding-bottom: 1.5rem; gap: 1rem;
+  }
+  header.site .mark { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; text-decoration: none; }
+  header.site nav { display: flex; gap: 1.25rem; font-size: 0.95rem; flex-wrap: wrap; }
+  @media (max-width: 479px) { header.site { flex-direction: column; align-items: flex-start; gap: 0.5rem; } header.site nav { gap: 1rem; } }
+  header.site nav a { text-decoration: none; color: var(--ink-soft); }
+  header.site nav a:hover { color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; display: grid; grid-template-columns: 1fr;
+    align-items: center; padding: 3rem 0 4rem; overflow: hidden;
+    background: var(--paper-deep); box-shadow: 0 0 0 100vmax var(--paper-deep); clip-path: inset(0 -100vmax);
+  }
+  @media (min-width: 860px) { .hero { grid-template-columns: 1.1fr 0.9fr; padding: 5rem 0 6rem; } }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 500; margin: 0;
+    font-size: clamp(2.75rem, 7vw, 5rem); line-height: 1.02; letter-spacing: -0.02em;
+  }
+  .hero .role { font-family: var(--serif); font-size: clamp(1.25rem, 2.4vw, 1.6rem); margin: 1rem 0 1.5rem; color: var(--ink-soft); }
+  .hero p.lede { max-width: var(--measure); margin: 0 0 2rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .btn {
+    display: inline-block; padding: 0.7rem 1.2rem; border: 1px solid var(--ink);
+    text-decoration: none; font-weight: 500; font-size: 0.95rem; border-radius: 2px;
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: transparent; color: var(--ink); }
+  .btn:not(.primary):hover { background: var(--ink); color: var(--paper); }
+
+  .rosette { width: 100%; max-width: 30rem; justify-self: center; aspect-ratio: 1; }
+  .rosette svg { width: 100%; height: 100%; display: block; }
+  .rosette path { fill: none; stroke: var(--gold); stroke-width: 0.45; opacity: 0.8; }
+  .rosette path.inner { stroke: var(--gold-2); opacity: 0.8; }
+  @media (max-width: 859px) {
+    .rosette { position: absolute; right: -35%; top: 0; width: 90%; opacity: 0.35; z-index: 0; pointer-events: none; }
+    .hero > div:first-child { position: relative; z-index: 1; }
+  }
+  .rosette.draw path { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: engrave 2.8s cubic-bezier(.4,0,.2,1) forwards; }
+  @keyframes engrave { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .rosette.draw path { animation: none; stroke-dashoffset: 0; } }
+
+  /* ---------- Sections ---------- */
+  section { padding: 4rem 0; border-top: 1px solid var(--line); }
+  .hero + section { border-top: 0; }
+  .sec-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem 3rem; }
+  @media (min-width: 860px) { .sec-grid { grid-template-columns: 14rem 1fr; } }
+  h2 { font-family: var(--serif); font-weight: 500; font-size: 1.75rem; line-height: 1.2; margin: 0; }
+  h3 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; margin: 0 0 0.4rem; }
+  .prose p { max-width: var(--measure); margin: 0 0 1rem; }
+
+  .domains { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 640px) { .domains { grid-template-columns: repeat(3, 1fr); } }
+  .domains article { border-top: 2px solid var(--gold); padding-top: 1rem; }
+  .domains p { margin: 0; color: var(--ink-soft); font-size: 0.975rem; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 1fr; gap: 0.25rem 2rem; padding: 0 0 2rem; }
+  @media (min-width: 640px) { .timeline li { grid-template-columns: 9rem 1fr; } }
+  .timeline .when { color: var(--ink-soft); font-size: 0.95rem; padding-top: 0.2rem; }
+  .timeline .org { color: var(--ink-soft); margin: 0 0 0.6rem; }
+  .timeline ul { margin: 0; padding-left: 1.1rem; max-width: var(--measure); }
+  .timeline ul li { display: list-item; padding: 0 0 0.3rem; }
+
+  .creds { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  @media (min-width: 640px) { .creds { grid-template-columns: repeat(3, 1fr); } }
+  .creds div { background: var(--paper-deep); padding: 1.25rem; border-radius: 2px; }
+  .creds h3 { font-size: 1.1rem; }
+  .creds p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
+
+  .contact p { max-width: var(--measure); }
+  .contact dl { display: grid; grid-template-columns: auto 1fr; gap: 0.5rem 1.5rem; margin: 1.5rem 0 0; }
+  .contact dt { color: var(--ink-soft); }
+  .contact dd { margin: 0; }
+
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.875rem; }
+</style>
+</head>
+<body>
+
+<!--
+  ================================================================
+  RESTE À COMPLÉTER (cherche "À REMPLACER") :
+  - les dates de tes postes (section Parcours)
+  ================================================================
+-->
+
+<div class="wrap">
+  <header class="site">
+    <a class="mark" href="#top">Joyce ITOUA</a>
+    <nav aria-label="Navigation principale">
+      <a href="#profil">Profil</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#formation">Formation</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <h1>Joyce ITOUA</h1>
+        <p class="role">Risk management et environnement titres</p>
+        <p class="lede">Actuaire Risk Management chez GRESHAM Banque, après cinq ans de gestion de projets risques et gouvernance à la Société Générale. Je fais le lien entre les exigences réglementaires et la réalité opérationnelle des processus titres.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact">Me contacter</a>
+          <a class="btn" href="#parcours">Voir mon parcours</a>
+        </div>
+      </div>
+      <div class="rosette" aria-hidden="true"><svg id="rosette" viewBox="-100 -100 200 200"></svg></div>
+    </div>
+
+    <section id="profil">
+      <div class="sec-grid">
+        <h2>Profil</h2>
+        <div>
+          <div class="prose">
+            <p>Mon terrain, c'est l'endroit où la réglementation rencontre les opérations : cadrer un sujet prudentiel, le traduire en processus concrets, puis le faire vivre dans les outils du quotidien.</p>
+            <p>Je m'oriente aujourd'hui vers des missions de chef de projet risques sur l'environnement titres : cadrage réglementaire, digitalisation des processus et migration de systèmes.</p>
+          </div>
+          <div class="domains" style="margin-top:2.5rem">
+            <article>
+              <h3>Réglementaire et prudentiel</h3>
+              <p>Stress tests, indicateurs prudentiels, échanges avec l'AMF et le FGDR.</p>
+            </article>
+            <article>
+              <h3>Environnement titres</h3>
+              <p>Appui au Back Office et maîtrise des processus de la chaîne titres.</p>
+            </article>
+            <article>
+              <h3>Pilotage de projet</h3>
+              <p>Gouvernance, cadrage, coordination des parties prenantes et conduite du changement.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="parcours">
+      <div class="sec-grid">
+        <h2>Parcours</h2>
+        <ol class="timeline">
+          <li>
+            <!-- À REMPLACER : date de début, ex. « Depuis 2024 » -->
+            <div class="when">Aujourd'hui</div>
+            <div>
+              <h3>Actuaire Risk Management</h3>
+              <p class="org">GRESHAM Banque</p>
+              <ul>
+                <li>Référent entité sur le volet risques et réglementaire.</li>
+                <li>Production et suivi des stress tests et des indicateurs prudentiels.</li>
+                <li>Interlocuteur de l'AMF et du FGDR.</li>
+                <li>Appui au Back Office sur l'environnement titres.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <!-- À REMPLACER : période, ex. « 2019 – 2024 » -->
+            <div class="when">Cinq ans</div>
+            <div>
+              <h3>Chef de projet gouvernance et risques</h3>
+              <p class="org">Société Générale</p>
+              <ul>
+                <li>Pilotage de projets de gouvernance et de gestion des risques.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!--
+      Section « Projets » prête à activer : retire les balises de commentaire
+      et remplis une <article> par projet (modèle, analyse, outil, code…).
+
+    <section id="projets">
+      <div class="sec-grid">
+        <h2>Projets</h2>
+        <div class="domains">
+          <article>
+            <h3>Titre du projet</h3>
+            <p>Une ou deux phrases : le problème, ce que tu as construit, le résultat.</p>
+            <p><a href="https://github.com/joycevarel-max/NOM-DU-DEPOT">Voir le dépôt</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <section id="formation">
+      <div class="sec-grid">
+        <h2>Formation et certifications</h2>
+        <div class="creds">
+          <div>
+            <h3>Master 2 Monnaie Banque Finance Assurance</h3>
+            <p>Spécialité Économie et Gestion des Risques Financiers. Validé avec stage et mémoire professionnel.</p>
+          </div>
+          <div>
+            <h3>FMVA</h3>
+            <p>Financial Modeling &amp; Valuation Analyst, Corporate Finance Institute.</p>
+          </div>
+          <div>
+            <h3>CMSA</h3>
+            <p>Capital Markets &amp; Securities Analyst, Corporate Finance Institute.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="sec-grid">
+        <h2>Contact</h2>
+        <div>
+          <p>Un projet de cadrage réglementaire, de digitalisation ou de migration sur l'environnement titres ? Écrivez-moi.</p>
+          <dl>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:joycevarel@gmail.com">joycevarel@gmail.com</a></dd>
+            <dt>LinkedIn</dt>
+            <dd><a href="https://www.linkedin.com/in/joyce-itoua">linkedin.com/in/joyce-itoua</a></dd>
+            <dt>GitHub</dt>
+            <dd><a href="https://github.com/joycevarel-max">github.com/joycevarel-max</a></dd>
+            <dt>Localisation</dt>
+            <dd>Paris</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Joyce ITOUA, Paris</footer>
+</div>
+
+<script>
+  // Rosace guillochée, dans l'esprit des anciens certificats de titres.
+  (function () {
+    var svg = document.getElementById('rosette');
+    var ns = 'http://www.w3.org/2000/svg';
+    function curve(R, amp, petals, phase, steps) {
+      var d = '';
+      for (var i = 0; i <= steps; i++) {
+        var t = (i / steps) * Math.PI * 2;
+        var r = R + amp * Math.sin(petals * t + phase);
+        var x = r * Math.cos(t), y = r * Math.sin(t);
+        d += (i ? 'L' : 'M') + x.toFixed(2) + ' ' + y.toFixed(2);
+      }
+      return d + 'Z';
+    }
+    var layers = [
+      { R: 78, amp: 14, petals: 18, n: 14, cls: '' },
+      { R: 50, amp: 10, petals: 12, n: 10, cls: 'inner' },
+      { R: 24, amp: 6, petals: 8, n: 8, cls: '' }
+    ];
+    layers.forEach(function (L) {
+      for (var k = 0; k < L.n; k++) {
+        var p = document.createElementNS(ns, 'path');
+        p.setAttribute('d', curve(L.R - k * 0.9, L.amp, L.petals, (k / L.n) * Math.PI, 720));
+        if (L.cls) p.setAttribute('class', L.cls);
+        svg.appendChild(p);
+      }
+    });
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      svg.querySelectorAll('path').forEach(function (p, i) {
+        p.style.setProperty('--len', Math.ceil(p.getTotalLength()));
+        p.style.animationDelay = (i * 0.03) + 's';
+      });
+      svg.parentNode.classList.add('draw');
+    }
+  })();
+</script>
+</body>
+</html>
