@@ -137,6 +137,16 @@
   .certs strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.05rem; line-height: 1.3; }
   .certs span { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.2rem; }
 
+  .projects { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 640px) { .projects { grid-template-columns: repeat(2, 1fr); } }
+  .projects li { border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 2px; padding: 1.25rem 1.25rem 1.4rem; display: flex; flex-direction: column; background: var(--paper); }
+  .projects .meta { font-size: 0.875rem; color: var(--ink-soft); margin: 0 0 0.5rem; }
+  .projects h3 { font-size: 1.2rem; line-height: 1.3; margin: 0 0 0.6rem; }
+  .projects p.desc { margin: 0 0 1rem; font-size: 0.975rem; }
+  .projects .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 1rem; padding: 0; list-style: none; }
+  .projects .tags li { border: 0; padding: 0.1rem 0.5rem; background: var(--paper-deep); font-size: 0.8rem; color: var(--ink); display: inline; }
+  .projects .result { margin-top: auto; padding-top: 0.9rem; border-top: 1px solid var(--line); color: var(--gold); font-weight: 600; font-size: 0.975rem; }
+
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.875rem; }
 </style>
 </head>
@@ -148,6 +158,7 @@
     <nav aria-label="Navigation principale">
       <a href="#profil">Profil</a>
       <a href="#parcours">Expérience</a>
+      <a href="#projets">Projets</a>
       <a href="#formation">Formation</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -231,23 +242,11 @@
               <h3>Project Management Officer (PMO)</h3>
               <p class="org">Société Générale, temps plein, sur site</p>
               <p style="margin:0;max-width:var(--measure)">Pilotage de projets de transformation et de conformité pour la filiale congolaise du Groupe.</p>
-              <div class="proj">
-                <h4>Programme Lafayette, remédiation conformité (2019-2022)</h4>
-                <p>Déploiement des standards du Groupe sur les sanctions et embargos, l’anticorruption, le blanchiment et la manipulation de marché, région Afrique Centrale et de l’Est. Cartographie des systèmes référentiels et transactionnels.</p>
-                <p class="res">100 % des systèmes cartographiés et certifiés</p>
-                <h4>Migration du core banking system Amplitude Sopra vers le cloud (2021-2023)</h4>
-                <p>Coordination des acteurs techniques et métiers, cahiers de tests et pilotage des recettes, suivi des budgets et des risques, comités de pilotage, conduite du changement.</p>
-                <p class="res">100 % des processus migrés, 98 % des évolutions implémentées</p>
-                <h4>Tarification corporate, Scrum Master (2022-2024)</h4>
-                <p>Automatisation du contrôle des conditions tarifaires PME et Corporate pour détecter les écarts de facturation. Six modules, cérémonies Scrum, coaching du Product Owner, formation de la force de vente.</p>
-                <p class="res">100 % des modules déployés, 97 % de satisfaction utilisateurs, impact positif sur le PNB</p>
-                <h4>Gestion électronique des documents (2019-2021)</h4>
-                <p>Déploiement d’un progiciel d’archivage sur les filiales Afrique et Outre-mer : plans de classement, matrices de flux, formation des utilisateurs.</p>
-                <p class="res">6 lots sur 7 déployés, 88 % des documents dématérialisés</p>
-                <h4>Reverse factoring et change à terme (2021-2022)</h4>
-                <p>Cadrage et lancement : ateliers d’analyse des risques, contrats, modes opératoires, schémas comptables.</p>
-                <p class="res">Avis de non-objection de la Banque Centrale obtenu</p>
-              </div>
+              <ul style="margin-top:0.6rem">
+                <li>Pilotage de cinq projets majeurs : remédiation conformité, migration du core banking system, tarification corporate, GED, reverse factoring et change à terme.</li>
+                <li>Rôles de PMO et de Scrum Master, du cadrage à la conduite du changement.</li>
+              </ul>
+              <p class="skills"><a href="#projets">Voir le détail dans la rubrique Projets</a></p>
               <p class="skills">Scrum, gouvernance, gestion des risques et conformité (GRC)</p>
             </div>
           </li>
@@ -255,23 +254,55 @@
       </div>
     </section>
 
-    <!--
-      Section « Projets » prête à activer : retire les balises de commentaire
-      et remplis une <article> par projet (modèle, analyse, outil, code…).
-
     <section id="projets">
       <div class="sec-grid">
         <h2>Projets</h2>
-        <div class="domains">
-          <article>
-            <h3>Titre du projet</h3>
-            <p>Une ou deux phrases : le problème, ce que tu as construit, le résultat.</p>
-            <p><a href="https://github.com/joycevarel-max/NOM-DU-DEPOT">Voir le dépôt</a></p>
-          </article>
-        </div>
+        <ul class="projects">
+          <li>
+            <p class="meta">Société Générale, 2021 – 2023</p>
+            <h3>Migration du core banking system vers le cloud</h3>
+            <p class="desc">Migration d’Amplitude (Sopra) vers le cloud : coordination des acteurs techniques et métiers, cahiers de tests et pilotage des recettes, suivi des budgets et des risques, comités de pilotage, conduite du changement.</p>
+            <ul class="tags"><li>Migration de système</li><li>Recette (UAT)</li><li>Conduite du changement</li></ul>
+            <p class="result">100 % des processus migrés, 98 % des évolutions implémentées</p>
+          </li>
+          <li>
+            <p class="meta">Société Générale, 2019 – 2022</p>
+            <h3>Programme Lafayette, remédiation conformité</h3>
+            <p class="desc">Déploiement des standards du Groupe sur les sanctions et embargos, l’anticorruption, le blanchiment et la manipulation de marché, région Afrique Centrale et de l’Est. Cartographie des systèmes référentiels et transactionnels.</p>
+            <ul class="tags"><li>Conformité</li><li>LCB-FT</li><li>Cartographie SI</li></ul>
+            <p class="result">100 % des systèmes cartographiés et certifiés</p>
+          </li>
+          <li>
+            <p class="meta">Société Générale, 2022 – 2024, Scrum Master</p>
+            <h3>Tarification corporate</h3>
+            <p class="desc">Automatisation du contrôle des conditions tarifaires PME et Corporate pour détecter les écarts de facturation. Six modules, cérémonies Scrum, coaching du Product Owner, formation de la force de vente.</p>
+            <ul class="tags"><li>Scrum</li><li>Automatisation</li><li>Contrôle</li></ul>
+            <p class="result">100 % des modules déployés, 97 % de satisfaction utilisateurs, impact positif sur le PNB</p>
+          </li>
+          <li>
+            <p class="meta">Société Générale, 2019 – 2021</p>
+            <h3>Gestion électronique des documents</h3>
+            <p class="desc">Déploiement d’un progiciel d’archivage sur les filiales Afrique et Outre-mer : plans de classement, matrices de flux, formation des utilisateurs.</p>
+            <ul class="tags"><li>Digitalisation</li><li>Déploiement multi-filiales</li><li>Formation</li></ul>
+            <p class="result">6 lots sur 7 déployés, 88 % des documents dématérialisés</p>
+          </li>
+          <li>
+            <p class="meta">Société Générale, 2021 – 2022</p>
+            <h3>Reverse factoring et change à terme</h3>
+            <p class="desc">Cadrage et lancement de deux nouvelles offres : ateliers d’analyse des risques, contrats, modes opératoires, schémas comptables.</p>
+            <ul class="tags"><li>Cadrage</li><li>Analyse des risques</li><li>Réglementaire</li></ul>
+            <p class="result">Avis de non-objection de la Banque Centrale obtenu</p>
+          </li>
+          <li>
+            <p class="meta">GRESHAM Banque, 2026</p>
+            <h3>Automatisation des contrôles du back office titres</h3>
+            <p class="desc">Conception de macros VBA et de tableaux de suivi pour automatiser les contrôles quotidiens sur l’exécution des ordres et les transferts d’avoirs PEA et CTO.</p>
+            <ul class="tags"><li>VBA</li><li>Opérations sur titres</li><li>Amélioration continue</li></ul>
+            <p class="result">Contrôles quotidiens automatisés</p>
+          </li>
+        </ul>
       </div>
     </section>
-    -->
 
     <section id="formation">
       <div class="sec-grid">
