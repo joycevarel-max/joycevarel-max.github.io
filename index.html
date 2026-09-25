@@ -158,6 +158,14 @@
   .pubs p { margin: 0; color: var(--ink-soft); max-width: var(--measure); font-size: 0.925rem; }
   .pubs .read { display: inline-block; margin-top: 0.45rem; font-size: 0.875rem; font-weight: 500; color: var(--gold); }
 
+  .ptag { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--gold); margin: -0.2rem 0 0.6rem; }
+  .projects details { margin: 0 0 1rem; font-size: 0.9rem; }
+  .projects summary { cursor: pointer; font-weight: 500; color: var(--ink); }
+  .projects summary:hover { color: var(--gold); }
+  .projects ul.tasks { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--ink-soft); }
+  .projects ul.tasks li, .projects ul.result li { border: 0; padding: 0 0 0.25rem; display: list-item; background: none; }
+  .projects ul.result { margin-top: auto; padding: 0.9rem 0 0 1.1rem; border-top: 1px solid var(--line); color: var(--gold); font-weight: 600; font-size: 0.9rem; list-style: disc; }
+
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.875rem; }
 </style>
 </head>
@@ -255,7 +263,7 @@
               <p class="org">Société Générale, temps plein, sur site</p>
               <p style="margin:0;max-width:var(--measure)">Pilotage de projets de transformation et de conformité pour la filiale congolaise du Groupe.</p>
               <ul style="margin-top:0.6rem">
-                <li>Pilotage de cinq projets majeurs : remédiation conformité, migration du core banking system, tarification corporate, GED, reverse factoring et change à terme.</li>
+                <li>Pilotage de six projets majeurs : remédiation conformité, montée de version du core banking system, tarification corporate, GED, reverse factoring et changes à terme.</li>
                 <li>Rôles de PMO et de Scrum Master, du cadrage à la conduite du changement.</li>
               </ul>
               <p class="skills"><a href="#projets">Voir le détail dans la rubrique Projets</a></p>
@@ -271,46 +279,44 @@
         <h2>Projets</h2>
         <ul class="projects">
           <li>
-            <p class="meta">Société Générale, 2021 – 2023</p>
-            <h3>Migration du core banking system vers le cloud</h3>
-            <p class="desc">Migration d’Amplitude (Sopra) vers le cloud : coordination des acteurs techniques et métiers, cahiers de tests et pilotage des recettes, suivi des budgets et des risques, comités de pilotage, conduite du changement.</p>
-            <ul class="tags"><li>Migration de système</li><li>Recette (UAT)</li><li>Conduite du changement</li></ul>
-            <p class="result">100 % des processus migrés, 98 % des évolutions implémentées</p>
+            <p class="meta">Société Générale, nov. 2022 – avr. 2024</p>
+            <h3>Gestion de la tarification corporate</h3><span class="ptag">Scrum Master</span>
+            <p class="desc">Développement, en approche agile, de programmes automatisant la consultation des conditions tarifaires standards et dérogatoires, afin d’identifier les écarts entre les conditions convenues et celles appliquées et d’améliorer le produit net bancaire.</p>
+            <details><summary>Tâches effectuées</summary><ul class="tasks"><li>Management et encadrement des équipes sur le framework Scrum</li><li>Collecte, analyse et priorisation des besoins fonctionnels</li><li>Coaching du PO dans la priorisation des conditions tarifaires constituant le backlog</li><li>Répartition des conditions tarifaires (standards et dérogatoires) en six modules</li><li>Découpage des travaux en EPICs et user stories</li><li>Organisation des cérémonies Scrum (daily, sprint planning, sprint review, rétrospective, poker planning)</li><li>Définition des sprints : cartographie des conditions tarifaires, détection et analyse des écarts, affichage et paramétrage, rapports et mails d’alerte, qualification et tests, clôture et post-mortem</li><li>Formation des utilisateurs des écrans (force de vente et managers)</li><li>Formation à l’analyse peer pricing / PNB+ (analyse des ventes)</li><li>Animation et résolution des bugs, optimisation des délais d’affichage des écrans</li><li>Analyse des impacts sur le produit net bancaire et la satisfaction clients</li></ul></details>
+            <ul class="result"><li>100 % des modules déployés</li><li>97 % de satisfaction des utilisateurs de la Direction Commerciale Entreprise</li><li>PNB+</li></ul>
           </li>
           <li>
-            <p class="meta">Société Générale, 2019 – 2022</p>
-            <h3>Programme Lafayette, remédiation conformité</h3>
-            <p class="desc">Déploiement des standards du Groupe sur les sanctions et embargos, l’anticorruption, le blanchiment et la manipulation de marché, région Afrique Centrale et de l’Est. Cartographie des systèmes référentiels et transactionnels.</p>
-            <ul class="tags"><li>Conformité</li><li>LCB-FT</li><li>Cartographie SI</li></ul>
-            <p class="result">100 % des systèmes cartographiés et certifiés</p>
+            <p class="meta">Société Générale, déc. 2021 – mai 2023</p>
+            <h3>Montée de version du core banking system Amplitude Sopra</h3><span class="ptag">Projets de migration</span>
+            <p class="desc">Déploiement de la version V11 du core banking system Amplitude Sopra en mode cloud : fonctionnalités améliorées, correctifs, meilleures performances et nouvelle ergonomie. Objectif : une transition fluide, en minimisant les interruptions et en garantissant la stabilité et la sécurité du système bancaire central.</p>
+            <details><summary>Tâches effectuées</summary><ul class="tasks"><li>Coordination et pilotage des acteurs techniques et métiers du projet</li><li>Communication et remontée périodique de l’état d’avancement</li><li>Rédaction des cahiers de tests utilisateurs et pilotage des tests</li><li>Coordination des tests utilisateurs techniques et fonctionnels</li><li>Gestion des demandes et suivi administratif des sous-traitants</li><li>Coordination de la conduite du changement : communication, formation, sensibilisation et accompagnement</li><li>Suivi des budgets (cash out et jours/homme) et des risques</li><li>Animation des comités de pilotage et comités projet</li><li>Suivi de l’avancement des projets connexes</li><li>Gestion du post-mortem : amélioration continue, résolution des anomalies</li></ul></details>
           </li>
           <li>
-            <p class="meta">Société Générale, 2022 – 2024, Scrum Master</p>
-            <h3>Tarification corporate</h3>
-            <p class="desc">Automatisation du contrôle des conditions tarifaires PME et Corporate pour détecter les écarts de facturation. Six modules, cérémonies Scrum, coaching du Product Owner, formation de la force de vente.</p>
-            <ul class="tags"><li>Scrum</li><li>Automatisation</li><li>Contrôle</li></ul>
-            <p class="result">100 % des modules déployés, 97 % de satisfaction utilisateurs, impact positif sur le PNB</p>
+            <p class="meta">Société Générale, avr. 2019 – déc. 2022</p>
+            <h3>Programme Lafayette</h3><span class="ptag">Conformité réglementaire</span>
+            <p class="desc">Ensemble des projets de remédiation conformité sur les sanctions et embargos, l’anticorruption, le blanchiment et la manipulation de marché, pour déployer dans les filiales de la région Afrique Centrale et de l’Est les engagements et standards du Groupe.</p>
+            <details><summary>Tâches effectuées</summary><ul class="tasks"><li>Cartographie des systèmes référentiels (clients, fournisseurs, actionnaires, personnels…)</li><li>Cartographie des systèmes transactionnels (flux internationaux et domestiques, crédits documentaires, remises documentaires…)</li></ul></details>
+            <ul class="result"><li>100 % des systèmes transactionnels et référentiels mappés</li><li>100 % des systèmes transactionnels et référentiels certifiés</li></ul>
           </li>
           <li>
-            <p class="meta">Société Générale, 2019 – 2021</p>
-            <h3>Gestion électronique des documents</h3>
-            <p class="desc">Déploiement d’un progiciel d’archivage sur les filiales Afrique et Outre-mer : plans de classement, matrices de flux, formation des utilisateurs.</p>
-            <ul class="tags"><li>Digitalisation</li><li>Déploiement multi-filiales</li><li>Formation</li></ul>
-            <p class="result">6 lots sur 7 déployés, 88 % des documents dématérialisés</p>
+            <p class="meta">Société Générale, juin 2021 – mai 2022</p>
+            <h3>Reverse factoring</h3>
+            <p class="desc">Face aux tensions de trésorerie des PME de la République du Congo, mise en place d’une solution de financement court terme fondée sur la solvabilité d’un acheteur « grande entreprise », qui transmet à la banque (le factor) les factures fournisseurs validées.</p>
+            <details><summary>Tâches effectuées</summary><ul class="tasks"><li>Analyse du marché et élaboration des business cases</li><li>Préqualification des fournisseurs pour le programme (ciblage client)</li><li>Rédaction des contrats d’affacturage acheteur et fournisseur</li><li>Déclinaison des directives risques affacturage du groupe Société Générale</li><li>Découpage du déploiement en deux lots : fournisseurs clients et non clients de la banque</li><li>Animation des ateliers d’analyse des risques et du comité nouveau produit</li><li>Rédaction de pitches commerciaux</li><li>Mise en place de la term sheet et de la fiche d’aide à la décision</li><li>Formation des parties prenantes (commerciaux, juristes, middle et back office, compliance, comptabilité)</li><li>Gestion du run : signature des contrats, réception et règlement des factures, comptabilisation, suivi des remboursements</li></ul></details>
           </li>
           <li>
-            <p class="meta">Société Générale, 2021 – 2022</p>
-            <h3>Reverse factoring et change à terme</h3>
-            <p class="desc">Cadrage et lancement de deux nouvelles offres : ateliers d’analyse des risques, contrats, modes opératoires, schémas comptables.</p>
-            <ul class="tags"><li>Cadrage</li><li>Analyse des risques</li><li>Réglementaire</li></ul>
-            <p class="result">Avis de non-objection de la Banque Centrale obtenu</p>
+            <p class="meta">Société Générale, mars 2021 – déc. 2021</p>
+            <h3>Changes à terme classique et flexible</h3>
+            <p class="desc">Lancement de deux solutions de change à terme dans la filiale Congo, en ligne avec les ambitions du Groupe en Afrique : diversifier le PNB, élargir la gamme de produits et répondre à un besoin spécifique de la clientèle entreprise.</p>
+            <details><summary>Tâches effectuées</summary><ul class="tasks"><li>Analyse des besoins métiers en change à terme classique et flexible</li><li>Animation des ateliers d’analyse des risques</li><li>Demande des avis d’approbation au régulateur (Banque Centrale)</li><li>Rédaction des modes opératoires et conventions de change</li><li>Veille concurrentielle</li><li>Participation à la conception des schémas comptables (conclusion et dénouement du deal)</li><li>Participation aux ateliers d’estimation des prix et marges (spread, frais de dossier, volumes attendus)</li><li>Mise en place de la stratégie de commercialisation et du service après-vente</li><li>Conduite du changement : sensibilisation, formation, accompagnement, rédaction de procédures</li></ul></details>
+            <ul class="result"><li>Avis de non-objection de la Banque Centrale sur la commercialisation du produit</li><li>Validation de l’analyse des risques</li><li>Accord de principe de la direction générale sur la commercialisation</li></ul>
           </li>
           <li>
-            <p class="meta">GRESHAM Banque, 2026</p>
-            <h3>Automatisation des contrôles du back office titres</h3>
-            <p class="desc">Conception de macros VBA et de tableaux de suivi pour automatiser les contrôles quotidiens sur l’exécution des ordres et les transferts d’avoirs PEA et CTO.</p>
-            <ul class="tags"><li>VBA</li><li>Opérations sur titres</li><li>Amélioration continue</li></ul>
-            <p class="result">Contrôles quotidiens automatisés</p>
+            <p class="meta">Société Générale, juin 2019 – déc. 2021</p>
+            <h3>Gestion électronique des documents (GED)</h3><span class="ptag">Gestion de projet logiciel</span>
+            <p class="desc">Déploiement d’un progiciel sur l’ensemble des filiales Société Générale Afrique – Outre-mer pour classer, archiver et consulter de façon uniformisée les documents clients : entrée en relation, crédits, transferts et financement à l’international.</p>
+            <details><summary>Tâches effectuées</summary><ul class="tasks"><li>Mise en œuvre et suivi d’un planning détaillé</li><li>Planification des ateliers techniques et métiers</li><li>Coordination et pilotage des acteurs filiale et centre d’expertise</li><li>Conception des plans de classement des documents clients et RH</li><li>Mise en place des matrices de flux et tests d’ouverture de route</li><li>Conduite du changement : communication, formations, sensibilisation, documentation</li><li>Formation des utilisateurs métiers (numérisation, consultation) et techniques (réindexation de la base)</li><li>Animation des comités du projet (COPIL, COPROJ, task force)</li><li>Configuration des postes utilisateurs (progiciels et scanners)</li><li>Envoi des reportings aux responsables filiales et Groupe</li><li>Gestion opérationnelle du socle technique et supervision des serveurs</li></ul></details>
+            <ul class="result"><li>6 lots sur 7 déployés, soit 86 %</li><li>100 % des utilisateurs finaux formés et équipés de scanners</li><li>88 % des documents dématérialisés</li></ul>
           </li>
         </ul>
       </div>
