@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Joyce ITOUA</title>
-<meta name="description" content="Joyce ITOUA, actuaire Risk Management : environnement titres, cadrage réglementaire, pilotage de projets risques.">
+<meta name="description" content="Joyce ITOUA, Project Manager : business transformation, marchés de capitaux, services financiers, gestion des risques.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -115,24 +115,39 @@
   .contact dt { color: var(--ink-soft); }
   .contact dd { margin: 0; }
 
+  .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 2rem; padding: 0; list-style: none; }
+  .badges li { font-size: 0.85rem; font-weight: 500; padding: 0.2rem 0.6rem; border: 1px solid var(--gold-2); border-radius: 2px; background: var(--paper); color: var(--ink); }
+  .status { font-size: 0.95rem; color: var(--ink-soft); margin: -0.75rem 0 1.5rem; }
+  .status strong { color: var(--gold); font-weight: 600; }
+  .proj { margin: 0.9rem 0 0; max-width: var(--measure); }
+  .proj h4 { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; margin: 1.1rem 0 0.25rem; color: var(--ink); }
+  .proj p { margin: 0; font-size: 0.975rem; }
+  .proj .res { color: var(--gold); font-weight: 500; margin-top: 0.2rem; }
+  .skills { font-size: 0.9rem; color: var(--ink-soft); margin: 0.6rem 0 0; }
+  .edu { list-style: none; margin: 0 0 3rem; padding: 0; display: grid; gap: 1.5rem; }
+  .edu li { display: grid; grid-template-columns: 1fr; gap: 0.1rem 2rem; }
+  @media (min-width: 640px) { .edu li { grid-template-columns: 9rem 1fr; } }
+  .edu .when { color: var(--ink-soft); font-size: 0.95rem; padding-top: 0.2rem; }
+  .edu p { margin: 0; color: var(--ink-soft); }
+  h3.sub { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; margin: 0 0 1.25rem; }
+  .certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 640px) { .certs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .certs { grid-template-columns: repeat(3, 1fr); } }
+  .certs li { background: var(--paper-deep); padding: 1rem 1.1rem; border-radius: 2px; }
+  .certs strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.05rem; line-height: 1.3; }
+  .certs span { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.2rem; }
+
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.875rem; }
 </style>
 </head>
 <body>
-
-<!--
-  ================================================================
-  RESTE À COMPLÉTER (cherche "À REMPLACER") :
-  - les dates de tes postes (section Parcours)
-  ================================================================
--->
 
 <div class="wrap">
   <header class="site">
     <a class="mark" href="#top">Joyce ITOUA</a>
     <nav aria-label="Navigation principale">
       <a href="#profil">Profil</a>
-      <a href="#parcours">Parcours</a>
+      <a href="#parcours">Expérience</a>
       <a href="#formation">Formation</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -142,8 +157,12 @@
     <div class="hero">
       <div>
         <h1>Joyce ITOUA</h1>
-        <p class="role">Risk management et environnement titres</p>
-        <p class="lede">Actuaire Risk Management chez GRESHAM Banque, après cinq ans de gestion de projets risques et gouvernance à la Société Générale. Je fais le lien entre les exigences réglementaires et la réalité opérationnelle des processus titres.</p>
+        <p class="role">Project Manager, Business Transformation, Capital Markets, Financial Services, Risk Management</p>
+        <ul class="badges" aria-label="Certifications">
+          <li>PMP®</li><li>PSM™</li><li>PSPO™</li><li>AMF Certified</li><li>CMSA®</li><li>FMVA®</li><li>BIDA®</li>
+        </ul>
+        <p class="status"><strong>À l’écoute de nouvelles opportunités</strong>, Paris et périphérie, sur site, hybride ou à distance.</p>
+        <p class="lede">Business Support Project Manager chez GRESHAM Banque, après plus de cinq ans comme Project Management Officer à la Société Générale, où j’ai piloté des projets de transformation et de conformité.</p>
         <div class="actions">
           <a class="btn primary" href="#contact">Me contacter</a>
           <a class="btn" href="#parcours">Voir mon parcours</a>
@@ -156,22 +175,18 @@
       <div class="sec-grid">
         <h2>Profil</h2>
         <div>
-          <div class="prose">
-            <p>Mon terrain, c'est l'endroit où la réglementation rencontre les opérations : cadrer un sujet prudentiel, le traduire en processus concrets, puis le faire vivre dans les outils du quotidien.</p>
-            <p>Je m'oriente aujourd'hui vers des missions de chef de projet risques sur l'environnement titres : cadrage réglementaire, digitalisation des processus et migration de systèmes.</p>
-          </div>
-          <div class="domains" style="margin-top:2.5rem">
+          <div class="domains">
             <article>
-              <h3>Réglementaire et prudentiel</h3>
-              <p>Stress tests, indicateurs prudentiels, échanges avec l'AMF et le FGDR.</p>
+              <h3>Gestion de projet et transformation</h3>
+              <p>PMO, Scrum Master, maîtrise d’ouvrage, recette fonctionnelle, migration de systèmes et conduite du changement.</p>
             </article>
             <article>
-              <h3>Environnement titres</h3>
-              <p>Appui au Back Office et maîtrise des processus de la chaîne titres.</p>
+              <h3>Marchés de capitaux et services financiers</h3>
+              <p>Opérations sur titres, back office titres (PEA, CTO), produits financiers et réglementation.</p>
             </article>
             <article>
-              <h3>Pilotage de projet</h3>
-              <p>Gouvernance, cadrage, coordination des parties prenantes et conduite du changement.</p>
+              <h3>Risques, conformité et data</h3>
+              <p>Gouvernance, risques et conformité, suivi des KPI, automatisation (VBA), Power BI, SQL et Python.</p>
             </article>
           </div>
         </div>
@@ -180,31 +195,60 @@
 
     <section id="parcours">
       <div class="sec-grid">
-        <h2>Parcours</h2>
+        <h2>Expérience</h2>
         <ol class="timeline">
           <li>
-            <!-- À REMPLACER : date de début, ex. « Depuis 2024 » -->
-            <div class="when">Aujourd'hui</div>
+            <div class="when">Sept. 2026 – aujourd’hui</div>
             <div>
-              <h3>Actuaire Risk Management</h3>
-              <p class="org">GRESHAM Banque</p>
+              <h3>Business Support Project Manager</h3>
+              <p class="org">GRESHAM Banque, Paris, sur site</p>
               <ul>
-                <li>Référent entité sur le volet risques et réglementaire.</li>
-                <li>Production et suivi des stress tests et des indicateurs prudentiels.</li>
-                <li>Interlocuteur de l'AMF et du FGDR.</li>
-                <li>Appui au Back Office sur l'environnement titres.</li>
+                <li>Accompagnement du déploiement des projets opérationnels de la banque.</li>
+                <li>Contribution à la performance opérationnelle des métiers.</li>
+                <li>Suivi et pilotage des KPI.</li>
               </ul>
+              <p class="skills">Maîtrise d’ouvrage (MOA / AMOA), recette fonctionnelle (UAT)</p>
             </div>
           </li>
           <li>
-            <!-- À REMPLACER : période, ex. « 2019 – 2024 » -->
-            <div class="when">Cinq ans</div>
+            <div class="when">Janv. 2026 – juil. 2026</div>
             <div>
-              <h3>Chef de projet gouvernance et risques</h3>
-              <p class="org">Société Générale</p>
+              <h3>Risk Management Support, Securities Back Office</h3>
+              <p class="org">GRESHAM Banque, Île-de-France, sur site</p>
               <ul>
-                <li>Pilotage de projets de gouvernance et de gestion des risques.</li>
+                <li>Contrôle de la bonne exécution des ordres de bourse.</li>
+                <li>Traitement des transferts entrants et sortants d’avoirs clients, titres et espèces, sur les supports PEA et CTO.</li>
+                <li>Traitement des demandes clients.</li>
+                <li>Conception de macros et de tableaux de suivi pour automatiser les contrôles quotidiens.</li>
+                <li>Amélioration continue des processus internes.</li>
               </ul>
+              <p class="skills">Visual Basic for Applications (VBA), opérations sur titres</p>
+            </div>
+          </li>
+          <li>
+            <div class="when">Avr. 2019 – mai 2024</div>
+            <div>
+              <h3>Project Management Officer (PMO)</h3>
+              <p class="org">Société Générale, temps plein, sur site</p>
+              <p style="margin:0;max-width:var(--measure)">Pilotage de projets de transformation et de conformité pour la filiale congolaise du Groupe.</p>
+              <div class="proj">
+                <h4>Programme Lafayette, remédiation conformité (2019-2022)</h4>
+                <p>Déploiement des standards du Groupe sur les sanctions et embargos, l’anticorruption, le blanchiment et la manipulation de marché, région Afrique Centrale et de l’Est. Cartographie des systèmes référentiels et transactionnels.</p>
+                <p class="res">100 % des systèmes cartographiés et certifiés</p>
+                <h4>Migration du core banking system Amplitude Sopra vers le cloud (2021-2023)</h4>
+                <p>Coordination des acteurs techniques et métiers, cahiers de tests et pilotage des recettes, suivi des budgets et des risques, comités de pilotage, conduite du changement.</p>
+                <p class="res">100 % des processus migrés, 98 % des évolutions implémentées</p>
+                <h4>Tarification corporate, Scrum Master (2022-2024)</h4>
+                <p>Automatisation du contrôle des conditions tarifaires PME et Corporate pour détecter les écarts de facturation. Six modules, cérémonies Scrum, coaching du Product Owner, formation de la force de vente.</p>
+                <p class="res">100 % des modules déployés, 97 % de satisfaction utilisateurs, impact positif sur le PNB</p>
+                <h4>Gestion électronique des documents (2019-2021)</h4>
+                <p>Déploiement d’un progiciel d’archivage sur les filiales Afrique et Outre-mer : plans de classement, matrices de flux, formation des utilisateurs.</p>
+                <p class="res">6 lots sur 7 déployés, 88 % des documents dématérialisés</p>
+                <h4>Reverse factoring et change à terme (2021-2022)</h4>
+                <p>Cadrage et lancement : ateliers d’analyse des risques, contrats, modes opératoires, schémas comptables.</p>
+                <p class="res">Avis de non-objection de la Banque Centrale obtenu</p>
+              </div>
+              <p class="skills">Scrum, gouvernance, gestion des risques et conformité (GRC)</p>
             </div>
           </li>
         </ol>
@@ -232,19 +276,34 @@
     <section id="formation">
       <div class="sec-grid">
         <h2>Formation et certifications</h2>
-        <div class="creds">
-          <div>
-            <h3>Master 2 Monnaie Banque Finance Assurance</h3>
-            <p>Spécialité Économie et Gestion des Risques Financiers. Validé avec stage et mémoire professionnel.</p>
-          </div>
-          <div>
-            <h3>FMVA</h3>
-            <p>Financial Modeling &amp; Valuation Analyst, Corporate Finance Institute.</p>
-          </div>
-          <div>
-            <h3>CMSA</h3>
-            <p>Capital Markets &amp; Securities Analyst, Corporate Finance Institute.</p>
-          </div>
+        <div>
+          <ol class="edu">
+            <li>
+              <div class="when">Sept. 2026 – aujourd’hui</div>
+              <div><h3>MBA Trading &amp; Finance de Marché</h3><p>ESLSCA Business School Paris</p></div>
+            </li>
+            <li>
+              <div class="when">2024 – 2026</div>
+              <div><h3>Master 2 Gestion des Risques Financiers, Monnaie, Banque, Finance &amp; Assurance</h3><p>Université de Rouen Normandie, mention Bien</p></div>
+            </li>
+            <li>
+              <div class="when">2018 – 2020</div>
+              <div><h3>Master 2 Économie et Organisation des Entreprises</h3><p>Université Marien Ngouabi, mention Bien</p></div>
+            </li>
+          </ol>
+          <h3 class="sub">Licences et certifications</h3>
+          <ul class="certs">
+            <li><strong>Business Intelligence &amp; Data Analyst (BIDA®)</strong><span>Corporate Finance Institute, sept. 2026</span></li>
+            <li><strong>Financial Modeling &amp; Valuation Analyst (FMVA®)</strong><span>Corporate Finance Institute, août 2026</span></li>
+            <li><strong>Capital Markets &amp; Securities Analyst (CMSA®)</strong><span>Corporate Finance Institute, août 2026</span></li>
+            <li><strong>Bloomberg Spreadsheet Analysis Certificate</strong><span>Bloomberg, févr. 2026</span></li>
+            <li><strong>Bloomberg Finance Fundamentals</strong><span>Bloomberg, janv. 2026</span></li>
+            <li><strong>Environmental Social Governance</strong><span>Bloomberg, janv. 2026</span></li>
+            <li><strong>Certification AMF</strong><span>Autorité des marchés financiers, déc. 2025</span></li>
+            <li><strong>Financial Markets</strong><span>Yale University, déc. 2025</span></li>
+            <li><strong>Bloomberg Market Concepts</strong><span>Bloomberg, déc. 2025</span></li>
+            <li><strong>Professional Scrum Product Owner I (PSPO I)</strong><span>Scrum.org, sept. 2025</span></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -253,7 +312,7 @@
       <div class="sec-grid">
         <h2>Contact</h2>
         <div>
-          <p>Un projet de cadrage réglementaire, de digitalisation ou de migration sur l'environnement titres ? Écrivez-moi.</p>
+          <p>Un projet de transformation, de cadrage réglementaire ou de migration dans les services financiers ? Écrivez-moi.</p>
           <dl>
             <dt>E-mail</dt>
             <dd><a href="mailto:joycevarel@gmail.com">joycevarel@gmail.com</a></dd>
@@ -262,7 +321,7 @@
             <dt>GitHub</dt>
             <dd><a href="https://github.com/joycevarel-max">github.com/joycevarel-max</a></dd>
             <dt>Localisation</dt>
-            <dd>Paris</dd>
+            <dd>Paris et périphérie</dd>
           </dl>
         </div>
       </div>
