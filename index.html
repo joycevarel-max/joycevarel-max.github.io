@@ -219,6 +219,13 @@
   .certs .clinks { grid-column: 2; display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; margin-top: 0.3rem; }
   .certs .clinks a.verify { margin-top: 0; }
   .certs li:has(.clinks) .medal { grid-row: 1 / span 3; }
+  #competences h3.sub { margin-top: 2rem; }
+  #competences h3.sub:first-child { margin-top: 0; }
+  .skillgroups { display: grid; grid-template-columns: 1fr; gap: 1.25rem 2rem; }
+  @media (min-width: 640px) { .skillgroups { grid-template-columns: repeat(3, 1fr); } }
+  .skillgroups h4 { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.6rem; }
+  #competences .badges { margin: 0; }
+  #competences .badges li { text-align: left; background: var(--paper-deep); border-color: var(--line); }
   section h2::after { content: ""; display: block; width: 4.5rem; height: 5px; background: var(--ink); margin-top: 0.7rem; }
 </style>
 </head>
@@ -234,6 +241,7 @@
       <a href="#publications">Publications</a>
       <a href="#formation">Formations</a>
       <a href="#certifications">Certifications</a>
+      <a href="#competences">Compétences</a>
       <a href="#contact">Contacts</a>
     </nav>
   </header>
@@ -493,6 +501,20 @@
             <li data-code="BIDA" data-k="d"><strong>Business Intelligence &amp; Data Analyst (BIDA®)</strong><span>Corporate Finance Institute, sept. 2026</span><div class="clinks"><a class="verify" href="https://credentials.corporatefinanceinstitute.com/cd1191e6-5585-4b5e-b50e-36a52ede6378" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://corporatefinanceinstitute.com/certifications/business-intelligence-data-analyst-bida/" target="_blank" rel="noopener">Candidater →</a></div></li>
             <li data-code="BSA" data-k="d"><strong>Bloomberg Spreadsheet Analysis Certificate</strong><span>Bloomberg, févr. 2026</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=15" target="_blank" rel="noopener">Candidater →</a></div></li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="competences">
+      <div class="sec-grid">
+        <h2>Compétences &amp; Hobbies</h2>
+        <div>
+          <h3 class="sub">Hard skills</h3>
+          <div class="skillgroups"><div><h4>Gestion de projet</h4><ul class="badges"><li>Scrum</li><li>PMO</li><li>MOA / AMOA</li><li>Recette fonctionnelle (UAT)</li><li>Conduite du changement</li><li>Gouvernance et GRC</li></ul></div><div><h4>Finance et marchés</h4><ul class="badges"><li>Modélisation financière</li><li>Valorisation</li><li>Produits dérivés</li><li>Actions et obligations</li><li>Opérations sur titres (PEA, CTO)</li><li>Réglementation financière</li></ul></div><div><h4>Data et outils</h4><ul class="badges"><li>Excel et VBA</li><li>Power Query</li><li>Power BI</li><li>SQL</li><li>Python</li><li>Bloomberg (BQL)</li></ul></div></div>
+          <h3 class="sub">Soft skills</h3>
+          <ul class="badges"><li>Communication</li><li>Esprit d’analyse</li><li>Esprit d’équipe</li></ul>
+          <h3 class="sub">Hobbies</h3>
+          <p class="skills">À venir.</p>
         </div>
       </div>
     </section>
