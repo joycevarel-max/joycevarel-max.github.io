@@ -168,6 +168,13 @@
   .projects ul.result { margin: 0; padding: 0 0 0 1.1rem; border-top: 0; color: var(--gold); font-weight: 600; font-size: 0.9rem; list-style: disc; }
 
   .certs + h3.sub { margin-top: 2.25rem; }
+  .certs li { display: grid; grid-template-columns: 3.75rem 1fr; grid-template-rows: auto auto; column-gap: 0.9rem; align-content: center; }
+  .certs li > strong { grid-column: 2; align-self: end; }
+  .certs li > span { grid-column: 2; align-self: start; }
+  .certs .medal { grid-column: 1; grid-row: 1 / span 2; width: 3.75rem; height: 3.75rem; display: block; align-self: center; }
+  .certs .medal .ring { fill: none; stroke-width: 0.5; }
+  .certs .medal text { font-family: var(--sans); font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.875rem; }
 </style>
 </head>
@@ -380,24 +387,24 @@
         <div>
           <h3 class="sub">Management de Projets</h3>
           <ul class="certs">
-            <li><strong>Professional Scrum Product Owner I (PSPO I)</strong><span>Scrum.org, sept. 2025</span></li>
-            <li><strong>Professional Scrum Master I (PSM I)</strong><span>Scrum.org, août 2025</span></li>
-            <li><strong>Project Management Professional (PMP®)</strong><span>Project Management Institute, févr. 2024</span></li>
+            <li data-code="PSPO" data-k="p"><strong>Professional Scrum Product Owner I (PSPO I)</strong><span>Scrum.org, sept. 2025</span></li>
+            <li data-code="PSM" data-k="p"><strong>Professional Scrum Master I (PSM I)</strong><span>Scrum.org, août 2025</span></li>
+            <li data-code="PMP" data-k="p"><strong>Project Management Professional (PMP®)</strong><span>Project Management Institute, févr. 2024</span></li>
           </ul>
           <h3 class="sub">Finances</h3>
           <ul class="certs">
-            <li><strong>Financial Modeling &amp; Valuation Analyst (FMVA®)</strong><span>Corporate Finance Institute, août 2026</span></li>
-            <li><strong>Capital Markets &amp; Securities Analyst (CMSA®)</strong><span>Corporate Finance Institute, août 2026</span></li>
-            <li><strong>Bloomberg Finance Fundamentals</strong><span>Bloomberg, janv. 2026</span></li>
-            <li><strong>Environmental Social Governance</strong><span>Bloomberg, janv. 2026</span></li>
-            <li><strong>Certification AMF</strong><span>Autorité des marchés financiers, déc. 2025</span></li>
-            <li><strong>Financial Markets</strong><span>Yale University, déc. 2025</span></li>
-            <li><strong>Bloomberg Market Concepts</strong><span>Bloomberg, déc. 2025</span></li>
+            <li data-code="FMVA" data-k="f"><strong>Financial Modeling &amp; Valuation Analyst (FMVA®)</strong><span>Corporate Finance Institute, août 2026</span></li>
+            <li data-code="CMSA" data-k="f"><strong>Capital Markets &amp; Securities Analyst (CMSA®)</strong><span>Corporate Finance Institute, août 2026</span></li>
+            <li data-code="BFF" data-k="f"><strong>Bloomberg Finance Fundamentals</strong><span>Bloomberg, janv. 2026</span></li>
+            <li data-code="ESG" data-k="f"><strong>Environmental Social Governance</strong><span>Bloomberg, janv. 2026</span></li>
+            <li data-code="AMF" data-k="f"><strong>Certification AMF</strong><span>Autorité des marchés financiers, déc. 2025</span></li>
+            <li data-code="FM" data-k="f"><strong>Financial Markets</strong><span>Yale University, déc. 2025</span></li>
+            <li data-code="BMC" data-k="f"><strong>Bloomberg Market Concepts</strong><span>Bloomberg, déc. 2025</span></li>
           </ul>
           <h3 class="sub">Data</h3>
           <ul class="certs">
-            <li><strong>Business Intelligence &amp; Data Analyst (BIDA®)</strong><span>Corporate Finance Institute, sept. 2026</span></li>
-            <li><strong>Bloomberg Spreadsheet Analysis Certificate</strong><span>Bloomberg, févr. 2026</span></li>
+            <li data-code="BIDA" data-k="d"><strong>Business Intelligence &amp; Data Analyst (BIDA®)</strong><span>Corporate Finance Institute, sept. 2026</span></li>
+            <li data-code="BSA" data-k="d"><strong>Bloomberg Spreadsheet Analysis Certificate</strong><span>Bloomberg, févr. 2026</span></li>
           </ul>
         </div>
       </div>
@@ -462,6 +469,26 @@
       });
       svg.parentNode.classList.add('draw');
     }
+  })();
+</script>
+<script>
+  // Médaillons des certifications : petite rosace et sigle.
+  (function () {
+    var ns = 'http://www.w3.org/2000/svg';
+    var tones = { p: ['#0F2A4A', '#8FB0DB'], f: ['#2B63B5', '#8FB0DB'], d: ['#4E86C8', '#B9CFEA'] };
+    document.querySelectorAll('.certs li[data-code]').forEach(function (li) {
+      var code = li.getAttribute('data-code'), t = tones[li.getAttribute('data-k')] || tones.f;
+      var svg = document.createElementNS(ns, 'svg'); svg.setAttribute('viewBox', '-50 -50 100 100'); svg.setAttribute('class', 'medal'); svg.setAttribute('aria-hidden', 'true');
+      var bg = document.createElementNS(ns, 'circle'); bg.setAttribute('r', '47'); bg.setAttribute('fill', '#fff'); svg.appendChild(bg);
+      for (var k = 0; k < 6; k++) {
+        var d = '';
+        for (var i = 0; i <= 360; i++) { var a = i / 360 * Math.PI * 2, r = 41 - k * 0.9 + 4 * Math.sin(16 * a + k / 6 * Math.PI); d += (i ? 'L' : 'M') + (r * Math.cos(a)).toFixed(2) + ' ' + (r * Math.sin(a)).toFixed(2); }
+        var p = document.createElementNS(ns, 'path'); p.setAttribute('d', d + 'Z'); p.setAttribute('class', 'ring'); p.setAttribute('stroke', t[1]); svg.appendChild(p);
+      }
+      var inner = document.createElementNS(ns, 'circle'); inner.setAttribute('r', '33'); inner.setAttribute('fill', t[0]); svg.appendChild(inner);
+      var tx = document.createElementNS(ns, 'text'); tx.textContent = code; tx.setAttribute('fill', '#fff'); tx.setAttribute('font-size', code.length > 3 ? '17' : '21'); svg.appendChild(tx);
+      li.insertBefore(svg, li.firstChild);
+    });
   })();
 </script>
 </body>
