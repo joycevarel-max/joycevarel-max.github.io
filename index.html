@@ -211,6 +211,7 @@
   .rosette svg { animation: spin 90s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { .rosette svg { animation: none; } }
+  section h2::after { content: ""; display: block; width: 4.5rem; height: 5px; background: var(--ink); margin-top: 0.7rem; }
 </style>
 </head>
 <body>
