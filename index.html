@@ -8,7 +8,7 @@
 <meta name="description" content="Joyce ITOUA, Project Manager : business transformation, marchés de capitaux, services financiers, gestion des risques.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
     :root {
     --paper: #FFFFFF;
@@ -180,6 +180,34 @@
   .certs .medal text { font-family: var(--sans); font-weight: 700; text-anchor: middle; dominant-baseline: central; }
 
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.875rem; }
+
+  /* ---------- Thème inspiré du tableau de bord CFI ---------- */
+  :root { --bg: #F5F6F8; --paper: #FFFFFF; --paper-deep: #F3F4F6; --ink: #0A1F44; --ink-soft: #4B5563; --line: #E3E6EB; --gold: #1D5FB0; --gold-2: #AFC4E2; --focus: #1D5FB0; --serif: "Source Serif 4", Georgia, serif; --sans: "Inter", system-ui, sans-serif; --shadow: 0 1px 3px rgba(10,31,68,.08), 0 1px 2px rgba(10,31,68,.04); }
+  body { background: var(--bg); }
+  header.site { position: sticky; top: 0; z-index: 10; background: #fff; padding-top: 1rem; padding-bottom: 1rem; box-shadow: 0 0 0 100vmax #fff, 0 1px 0 100vmax var(--line); clip-path: inset(0 -100vmax -1px); }
+  header.site .mark { font-weight: 700; font-size: 1.15rem; }
+  header.site nav a { color: var(--ink); font-weight: 600; font-size: 0.9rem; }
+  header.site nav a:hover { color: var(--gold); }
+  .hero { background: #fff; box-shadow: var(--shadow); clip-path: none; border-radius: 4px; margin-top: 2rem; padding: 2.5rem 1.5rem; }
+  @media (min-width: 860px) { .hero { padding: 3rem; } }
+  .hero h1 { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3rem); letter-spacing: -0.01em; }
+  .hero .role { font-family: var(--sans); font-size: 1rem; font-weight: 500; }
+  h2 { font-weight: 700; font-size: 1.75rem; }
+  h3, h3.sub { font-weight: 700; }
+  .kpis { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0.25rem 3rem; margin: 0 0 1.75rem; }
+  .kpis dt { font-weight: 600; font-size: 0.85rem; color: var(--ink); }
+  .kpis dd { margin: 0.35rem 0 0; color: var(--ink-soft); }
+  @media (max-width: 479px) { .kpis { gap: 0.25rem 1.5rem; } }
+  .btn { border-radius: 4px; font-weight: 700; padding: 0.75rem 1.25rem; }
+  .btn.primary { background: var(--ink); color: #fff; box-shadow: var(--shadow); }
+  .btn.primary:hover { background: #17336B; color: #fff; }
+  .btn:not(.primary) { border-color: transparent; color: var(--gold); padding-left: 0.5rem; }
+  .btn:not(.primary):hover { background: none; color: var(--ink); }
+  section { background: #fff; border-top: 0; border-radius: 4px; box-shadow: var(--shadow); padding: 2.5rem 1.5rem; margin: 1.5rem 0; }
+  @media (min-width: 640px) { section { padding: 3rem 2.5rem; } }
+  .projects li { border-radius: 4px; }
+  footer { border-top: 0; text-align: center; }
+  @media (max-width: 639px) { header.site { position: static; } }
 </style>
 </head>
 <body>
@@ -206,9 +234,10 @@
         <p class="role">Project Manager, Business Transformation, Capital Markets, Financial Services, Risk Management</p>
         <p class="status"><strong>À l’écoute de nouvelles opportunités</strong>, Paris et périphérie, sur site, hybride ou à distance.</p>
         <p class="lede">Business Support Project Manager chez GRESHAM Banque, après plus de cinq ans comme Project Management Officer à la Société Générale, où j’ai piloté des projets de transformation et de conformité.</p>
+        <dl class="kpis"><div><dt>Expérience</dt><dd>6 ans</dd></div><div><dt>Projets pilotés</dt><dd>6</dd></div><div><dt>Certifications</dt><dd>12</dd></div></dl>
         <div class="actions">
           <a class="btn primary" href="#contact">Me contacter</a>
-          <a class="btn" href="#parcours">Voir mon parcours</a>
+          <a class="btn" href="#parcours">Voir mon parcours →</a>
         </div>
       </div>
       <div class="rosette"><svg id="rosette" viewBox="-100 -100 200 200" aria-hidden="true"></svg><img class="avatar" src="photo-joyce.jpg" width="320" height="320" alt="Joyce ITOUA"></div>
