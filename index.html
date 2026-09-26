@@ -211,6 +211,8 @@
   .rosette svg { animation: spin 90s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
   @media (prefers-reduced-motion: reduce) { .rosette svg { animation: none; } }
+  main p, main li { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+  main h1, main h2, main h3, main .meta, .projects ul.result li, .projects .rlabel, .skills { text-align: left; -webkit-hyphens: manual; hyphens: manual; }
   section h2::after { content: ""; display: block; width: 4.5rem; height: 5px; background: var(--ink); margin-top: 0.7rem; }
 </style>
 </head>
