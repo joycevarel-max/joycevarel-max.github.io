@@ -208,6 +208,9 @@
   .projects li { border-radius: 4px; }
   footer { border-top: 0; text-align: center; }
   @media (max-width: 639px) { header.site { position: static; } }
+  .rosette svg { animation: spin 90s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .rosette svg { animation: none; } }
 </style>
 </head>
 <body>
