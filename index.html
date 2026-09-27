@@ -271,6 +271,10 @@
   .episodes .soon { font-size: 0.75rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 999px; background: #fff; color: var(--ink); }
   #entrepreneuriat .follow { margin: 1.5rem 0 0; font-size: 0.9rem; color: rgba(255,255,255,.8); text-align: left; }
   #entrepreneuriat .follow a { color: #fff; font-weight: 600; }
+  header.site nav { align-items: center; gap: 0.4rem 1.5rem; }
+  header.site nav a { font-size: 0.9rem; }
+  header.site nav a.navcta { padding: 0.45rem 1rem; border-radius: 4px; background: var(--ink); color: #fff; }
+  header.site nav a.navcta:hover { background: #17336B; color: #fff; }
   section h2::after { content: ""; display: block; width: 4.5rem; height: 5px; background: var(--ink); margin-top: 0.7rem; }
 </style>
 </head>
@@ -280,17 +284,12 @@
   <header class="site">
     <a class="mark" href="#top">Joyce ITOUA</a>
     <nav aria-label="Navigation principale">
-      <a href="#profil">Profil</a>
-      <a href="#parcours">Expériences</a>
+      <a href="#parcours">Parcours</a>
       <a href="#projets">Projets</a>
       <a href="#entrepreneuriat">Entrepreneuriat</a>
-      <a href="#publications">Publications</a>
-      <a href="#formation">Formations</a>
       <a href="#certifications">Certifications</a>
       <a href="#ressources">Ressources</a>
-      <a href="#templates">Templates</a>
-      <a href="#competences">Compétences</a>
-      <a href="#contact">Contacts</a>
+      <a class="navcta" href="#contact">Contact</a>
     </nav>
   </header>
 
