@@ -226,6 +226,34 @@
   .skillgroups h4 { font-family: var(--sans); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.6rem; }
   #competences .badges { margin: 0; }
   #competences .badges li { text-align: left; background: var(--paper-deep); border-color: var(--line); }
+  #ressources .intro, #templates .intro { margin: 0 0 1.5rem; max-width: var(--measure); color: var(--ink-soft); }
+  .resgrid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 1000px) { .resgrid { grid-template-columns: repeat(3, 1fr); } }
+  .resgrid article { background: var(--paper-deep); border-radius: 4px; padding: 1.25rem; }
+  .resgrid h3 { margin: 0 0 0.75rem; }
+  .resgrid .price { display: inline-block; margin: 0.75rem 0 0.4rem; padding: 0.1rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; background: var(--ink); color: #fff; }
+  .resgrid .price.free { background: #1E7A4C; margin-top: 0; }
+  .reslist { list-style: none; margin: 0; padding: 0; }
+  .reslist li { padding: 0.45rem 0; border-top: 1px solid var(--line); text-align: left; }
+  .reslist li:first-child { border-top: 0; }
+  .reslist a { font-weight: 600; color: var(--gold); text-decoration: none; }
+  .reslist a:hover { text-decoration: underline; }
+  .reslist span { display: block; font-size: 0.85rem; color: var(--ink-soft); }
+  .tpl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 640px) { .tpl { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .tpl { grid-template-columns: repeat(3, 1fr); } }
+  .tpl li { border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 4px; padding: 1rem 1.1rem; text-align: left; }
+  .tpl h3 { font-size: 1rem; margin: 0 0 0.35rem; }
+  .tpl p { margin: 0 0 0.6rem; font-size: 0.9rem; color: var(--ink-soft); text-align: left; }
+  .tpl .soon { font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); }
+  .certs details.tips { grid-column: 2; margin-top: 0.35rem; font-size: 0.85rem; }
+  .certs details.tips summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+  .certs details.tips p { margin: 0.3rem 0 0; color: var(--ink-soft); text-align: left; }
+  .certs li:has(details.tips) .medal { grid-row: 1 / span 4; }
+  header.site .mark { white-space: nowrap; }
+  header.site nav { gap: 0.4rem 1rem; }
+  header.site nav a { font-size: 0.85rem; }
+  .hero .role, #ressources .intro, #templates .intro { text-align: left; }
   section h2::after { content: ""; display: block; width: 4.5rem; height: 5px; background: var(--ink); margin-top: 0.7rem; }
 </style>
 </head>
@@ -241,6 +269,8 @@
       <a href="#publications">Publications</a>
       <a href="#formation">Formations</a>
       <a href="#certifications">Certifications</a>
+      <a href="#ressources">Ressources</a>
+      <a href="#templates">Templates</a>
       <a href="#competences">Compétences</a>
       <a href="#contact">Contacts</a>
     </nav>
@@ -462,25 +492,45 @@
         <div>
           <h3 class="sub">Management de Projets</h3>
           <ul class="certs">
-            <li data-code="PSPO" data-k="p"><strong>Professional Scrum Product Owner I (PSPO I)</strong><span>Scrum.org, sept. 2025</span><div class="clinks"><a class="verify" href="https://www.credly.com/badges/012122e5-5336-4bc4-b700-58df2d227b5f" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="PSM" data-k="p"><strong>Professional Scrum Master I (PSM I)</strong><span>Scrum.org, août 2025</span><div class="clinks"><a class="verify" href="https://www.credly.com/badges/647949ad-416a-41fb-9680-4222475ab245" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.scrum.org/assessments/professional-scrum-master-i-certification" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="PMP" data-k="p"><strong>Project Management Professional (PMP®)</strong><span>Project Management Institute, févr. 2024</span><div class="clinks"><a class="verify" href="https://www.pmi.org/certifications/certification-resources/registry" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">Candidater →</a></div></li>
+            <li data-code="PSPO" data-k="p"><strong>Professional Scrum Product Owner I (PSPO I)</strong><span>Scrum.org, sept. 2025</span><div class="clinks"><a class="verify" href="https://www.credly.com/badges/012122e5-5336-4bc4-b700-58df2d227b5f" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="PSM" data-k="p"><strong>Professional Scrum Master I (PSM I)</strong><span>Scrum.org, août 2025</span><div class="clinks"><a class="verify" href="https://www.credly.com/badges/647949ad-416a-41fb-9680-4222475ab245" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.scrum.org/assessments/professional-scrum-master-i-certification" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="PMP" data-k="p"><strong>Project Management Professional (PMP®)</strong><span>Project Management Institute, févr. 2024</span><div class="clinks"><a class="verify" href="https://www.pmi.org/certifications/certification-resources/registry" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
           </ul>
           <h3 class="sub">Finances</h3>
           <ul class="certs">
-            <li data-code="FMVA" data-k="f"><strong>Financial Modeling &amp; Valuation Analyst (FMVA®)</strong><span>Corporate Finance Institute, août 2026</span><div class="clinks"><a class="verify" href="https://credentials.corporatefinanceinstitute.com/de1160db-cc0a-4907-88ab-3df33811eb2c" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://corporatefinanceinstitute.com/certifications/financial-modeling-valuation-analyst-fmva-program/" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="CMSA" data-k="f"><strong>Capital Markets &amp; Securities Analyst (CMSA®)</strong><span>Corporate Finance Institute, août 2026</span><div class="clinks"><a class="verify" href="https://credentials.corporatefinanceinstitute.com/4333a200-6b80-4aac-bf2f-ad56e20cf9ed" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://corporatefinanceinstitute.com/certifications/capital-markets-securities-analyst-cmsa/" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="BFF" data-k="f"><strong>Bloomberg Finance Fundamentals</strong><span>Bloomberg, janv. 2026</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/certificates/hDmUw3UWcQoxMgdiKcD1wobN" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=11" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="ESG" data-k="f"><strong>Environmental Social Governance</strong><span>Bloomberg, janv. 2026</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/certificates/z3s5evPmrS5BE6ysZyf6ph3V" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=7" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="AMF" data-k="f"><strong>Certification AMF</strong><span>Autorité des marchés financiers, déc. 2025</span><div class="clinks"><a class="verify" href="https://www.amf-france.org/fr/actualites-publications/dossiers-thematiques/certification-professionnelle" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="FM" data-k="f"><strong>Financial Markets</strong><span>Yale University, déc. 2025</span><div class="clinks"><a class="verify" href="https://www.coursera.org/account/accomplishments/records/6GKLUH3K0M5U" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.coursera.org/learn/financial-markets-global" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="BMC" data-k="f"><strong>Bloomberg Market Concepts</strong><span>Bloomberg, déc. 2025</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/certificates/dcsD8qGt6e8iHuhfMzd6r9Pg" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=3" target="_blank" rel="noopener">Candidater →</a></div></li>
+            <li data-code="FMVA" data-k="f"><strong>Financial Modeling &amp; Valuation Analyst (FMVA®)</strong><span>Corporate Finance Institute, août 2026</span><div class="clinks"><a class="verify" href="https://credentials.corporatefinanceinstitute.com/de1160db-cc0a-4907-88ab-3df33811eb2c" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://corporatefinanceinstitute.com/certifications/financial-modeling-valuation-analyst-fmva-program/" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="CMSA" data-k="f"><strong>Capital Markets &amp; Securities Analyst (CMSA®)</strong><span>Corporate Finance Institute, août 2026</span><div class="clinks"><a class="verify" href="https://credentials.corporatefinanceinstitute.com/4333a200-6b80-4aac-bf2f-ad56e20cf9ed" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://corporatefinanceinstitute.com/certifications/capital-markets-securities-analyst-cmsa/" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="BFF" data-k="f"><strong>Bloomberg Finance Fundamentals</strong><span>Bloomberg, janv. 2026</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/certificates/hDmUw3UWcQoxMgdiKcD1wobN" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=11" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="ESG" data-k="f"><strong>Environmental Social Governance</strong><span>Bloomberg, janv. 2026</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/certificates/z3s5evPmrS5BE6ysZyf6ph3V" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=7" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="AMF" data-k="f"><strong>Certification AMF</strong><span>Autorité des marchés financiers, déc. 2025</span><div class="clinks"><a class="verify" href="https://www.amf-france.org/fr/actualites-publications/dossiers-thematiques/certification-professionnelle" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="FM" data-k="f"><strong>Financial Markets</strong><span>Yale University, déc. 2025</span><div class="clinks"><a class="verify" href="https://www.coursera.org/account/accomplishments/records/6GKLUH3K0M5U" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://www.coursera.org/learn/financial-markets-global" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="BMC" data-k="f"><strong>Bloomberg Market Concepts</strong><span>Bloomberg, déc. 2025</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/certificates/dcsD8qGt6e8iHuhfMzd6r9Pg" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=3" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
           </ul>
           <h3 class="sub">Data</h3>
           <ul class="certs">
-            <li data-code="BIDA" data-k="d"><strong>Business Intelligence &amp; Data Analyst (BIDA®)</strong><span>Corporate Finance Institute, sept. 2026</span><div class="clinks"><a class="verify" href="https://credentials.corporatefinanceinstitute.com/cd1191e6-5585-4b5e-b50e-36a52ede6378" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://corporatefinanceinstitute.com/certifications/business-intelligence-data-analyst-bida/" target="_blank" rel="noopener">Candidater →</a></div></li>
-            <li data-code="BSA" data-k="d"><strong>Bloomberg Spreadsheet Analysis Certificate</strong><span>Bloomberg, févr. 2026</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=15" target="_blank" rel="noopener">Candidater →</a></div></li>
+            <li data-code="BIDA" data-k="d"><strong>Business Intelligence &amp; Data Analyst (BIDA®)</strong><span>Corporate Finance Institute, sept. 2026</span><div class="clinks"><a class="verify" href="https://credentials.corporatefinanceinstitute.com/cd1191e6-5585-4b5e-b50e-36a52ede6378" target="_blank" rel="noopener">Vérifier →</a><a class="verify" href="https://corporatefinanceinstitute.com/certifications/business-intelligence-data-analyst-bida/" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
+            <li data-code="BSA" data-k="d"><strong>Bloomberg Spreadsheet Analysis Certificate</strong><span>Bloomberg, févr. 2026</span><div class="clinks"><a class="verify" href="https://portal.bloombergforeducation.com/courses?course_category_id=15" target="_blank" rel="noopener">Candidater →</a></div><details class="tips"><summary>Mes conseils</summary><p>À venir.</p></details></li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="ressources">
+      <div class="sec-grid">
+        <h2>Ressources</h2>
+        <div>
+          <p class="intro">Ma sélection de formations et de certifications, gratuites et payantes, pour progresser en gestion de projet, en finance et en data.</p>
+          <div class="resgrid"><article><h3>Gestion de projet</h3><p class="price free">Gratuit</p><ul class="reslist"><li><a href="https://scrumguides.org/" target="_blank" rel="noopener">Scrum Guide</a><span>Le guide officiel de Scrum, la base pour PSM et PSPO</span></li><li><a href="https://www.scrum.org/open-assessments" target="_blank" rel="noopener">Open Assessments Scrum.org</a><span>Tests d’entraînement officiels, illimités</span></li><li><a href="https://www.pmi.org/kickoff" target="_blank" rel="noopener">PMI Kickoff</a><span>Cours d’initiation de 45 min et boîte à outils</span></li><li><a href="https://www.pmi.org/learning/free-online-courses" target="_blank" rel="noopener">Cours gratuits du PMI</a><span>Agile, IA générative appliquée aux projets</span></li></ul><p class="price">Payant</p><ul class="reslist"><li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMP®</a><span>PMI, la référence internationale</span></li><li><a href="https://www.scrum.org/assessments/professional-scrum-master-i-certification" target="_blank" rel="noopener">PSM I</a><span>Scrum.org, Scrum Master</span></li><li><a href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">PSPO I</a><span>Scrum.org, Product Owner</span></li></ul></article><article><h3>Finance</h3><p class="price free">Gratuit</p><ul class="reslist"><li><a href="https://www.coursera.org/learn/financial-markets-global" target="_blank" rel="noopener">Financial Markets (Yale)</a><span>Coursera, gratuit en auditeur libre</span></li><li><a href="https://corporatefinanceinstitute.com/course/careers-in-finance/" target="_blank" rel="noopener">Careers in Finance</a><span>CFI, panorama des métiers de la finance</span></li><li><a href="https://corporatefinanceinstitute.com/resources/" target="_blank" rel="noopener">Ressources CFI</a><span>Articles, guides et modèles Excel</span></li></ul><p class="price">Payant</p><ul class="reslist"><li><a href="https://corporatefinanceinstitute.com/certifications/financial-modeling-valuation-analyst-fmva-program/" target="_blank" rel="noopener">FMVA®</a><span>CFI, modélisation financière et valorisation</span></li><li><a href="https://corporatefinanceinstitute.com/certifications/capital-markets-securities-analyst-cmsa/" target="_blank" rel="noopener">CMSA®</a><span>CFI, marchés de capitaux</span></li><li><a href="https://portal.bloombergforeducation.com/courses?course_category_id=3" target="_blank" rel="noopener">Bloomberg Market Concepts</a><span>Bloomberg for Education</span></li><li><a href="https://www.amf-france.org/fr/actualites-publications/dossiers-thematiques/certification-professionnelle" target="_blank" rel="noopener">Certification AMF</a><span>Examen auprès d’un organisme certifié</span></li></ul></article><article><h3>Data</h3><p class="price free">Gratuit</p><ul class="reslist"><li><a href="https://learn.microsoft.com/fr-fr/training/powerplatform/power-bi" target="_blank" rel="noopener">Microsoft Learn : Power BI</a><span>Parcours officiels en français</span></li><li><a href="https://www.kaggle.com/learn" target="_blank" rel="noopener">Kaggle Learn</a><span>Python, SQL, pandas, data visualisation</span></li></ul><p class="price">Payant</p><ul class="reslist"><li><a href="https://learn.microsoft.com/fr-fr/credentials/certifications/data-analyst-associate/" target="_blank" rel="noopener">Power BI Data Analyst (PL-300)</a><span>Microsoft, certification Power BI</span></li><li><a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" rel="noopener">Google Data Analytics</a><span>Coursera, certificat professionnel</span></li><li><a href="https://corporatefinanceinstitute.com/certifications/business-intelligence-data-analyst-bida/" target="_blank" rel="noopener">BIDA®</a><span>CFI, business intelligence</span></li></ul></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="templates">
+      <div class="sec-grid">
+        <h2>Templates</h2>
+        <div>
+          <p class="intro">Des modèles de documents de gestion de projet, issus de ma pratique, à télécharger et adapter.</p>
+          <ul class="tpl"><li><h3>Charte projet</h3><p>Objectifs, périmètre, parties prenantes, jalons et budget.</p><span class="soon">Bientôt disponible</span></li><li><h3>Compte rendu de COPIL</h3><p>Avancement, décisions, risques et plan d’actions.</p><span class="soon">Bientôt disponible</span></li><li><h3>Flash report</h3><p>Suivi mensuel : planning, charges, risques et alertes.</p><span class="soon">Bientôt disponible</span></li><li><h3>Registre des risques</h3><p>Identification, cotation et suivi des risques projet.</p><span class="soon">Bientôt disponible</span></li><li><h3>Cahier de recette</h3><p>Scénarios de test, résultats attendus et anomalies.</p><span class="soon">Bientôt disponible</span></li><li><h3>PV de recette</h3><p>Validation formelle et accord de mise en production.</p><span class="soon">Bientôt disponible</span></li></ul>
         </div>
       </div>
     </section>
