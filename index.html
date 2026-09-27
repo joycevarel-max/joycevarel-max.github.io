@@ -254,6 +254,23 @@
   header.site nav { gap: 0.4rem 1rem; }
   header.site nav a { font-size: 0.85rem; }
   .hero .role, #ressources .intro, #templates .intro { text-align: left; }
+  #entrepreneuriat { background: var(--ink); color: #fff; }
+  #entrepreneuriat h2 { color: #fff; }
+  #entrepreneuriat h2::after { background: #fff; }
+  #entrepreneuriat .kicker { display: inline-block; margin: 0 0 0.75rem; padding: 0.15rem 0.6rem; border: 1px solid rgba(255,255,255,.5); border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+  #entrepreneuriat .teaser { margin: 0 0 1.5rem; max-width: var(--measure); font-size: 1.05rem; color: rgba(255,255,255,.9); text-align: left; }
+  .episodes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1rem; }
+  @media (min-width: 640px) { .episodes { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .episodes { grid-template-columns: repeat(3, 1fr); } }
+  .episodes li { position: relative; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 4px; padding: 1.1rem 1.1rem 1.2rem; text-align: left; transition: background .2s, transform .2s; }
+  .episodes li:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+  .episodes .ep { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #AFC4E2; }
+  .episodes .ico { position: absolute; top: 0.9rem; right: 1rem; font-size: 1.6rem; }
+  .episodes h3 { color: #fff; font-size: 1.1rem; margin: 0.5rem 0 0.35rem; }
+  .episodes p { margin: 0 0 0.75rem; font-size: 0.9rem; color: rgba(255,255,255,.8); text-align: left; }
+  .episodes .soon { font-size: 0.75rem; font-weight: 700; padding: 0.1rem 0.5rem; border-radius: 999px; background: #fff; color: var(--ink); }
+  #entrepreneuriat .follow { margin: 1.5rem 0 0; font-size: 0.9rem; color: rgba(255,255,255,.8); text-align: left; }
+  #entrepreneuriat .follow a { color: #fff; font-weight: 600; }
   section h2::after { content: ""; display: block; width: 4.5rem; height: 5px; background: var(--ink); margin-top: 0.7rem; }
 </style>
 </head>
@@ -266,6 +283,7 @@
       <a href="#profil">Profil</a>
       <a href="#parcours">Expériences</a>
       <a href="#projets">Projets</a>
+      <a href="#entrepreneuriat">Entrepreneuriat</a>
       <a href="#publications">Publications</a>
       <a href="#formation">Formations</a>
       <a href="#certifications">Certifications</a>
@@ -431,6 +449,18 @@
             <p class="desc">Description à venir.</p>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section id="entrepreneuriat">
+      <div class="sec-grid">
+        <h2>Entrepreneuriat</h2>
+        <div>
+          <p class="kicker">Jamais raconté sur LinkedIn</p>
+          <p class="teaser">Avant et à côté de la banque, j’ai créé et géré plusieurs activités. Une autre facette de mon parcours, que je raconte ici, épisode par épisode.</p>
+          <ol class="episodes"><li><span class="ep">Épisode 01</span><span class="ico" aria-hidden="true">🏢</span><h3>Ma TPE</h3><p>Créée il y a trois ans : pourquoi je me suis lancé, et ce que l’entrepreneuriat m’a appris.</p><span class="soon">Bientôt</span></li><li><span class="ep">Épisode 02</span><span class="ico" aria-hidden="true">🏨</span><h3>Les hôtels</h3><p>Ce que la gestion hôtelière m’a appris sur l’exigence du service.</p><span class="soon">Bientôt</span></li><li><span class="ep">Épisode 03</span><span class="ico" aria-hidden="true">🚿</span><h3>La station de lavage</h3><p>Une activité de proximité, où chaque client compte.</p><span class="soon">Bientôt</span></li><li><span class="ep">Épisode 04</span><span class="ico" aria-hidden="true">🌾</span><h3>La ferme agricole</h3><p>Du champ au marché : piloter une activité au rythme des saisons.</p><span class="soon">Bientôt</span></li><li><span class="ep">Épisode 05</span><span class="ico" aria-hidden="true">💈</span><h3>Les salons de coiffure</h3><p>Gérer une équipe et fidéliser une clientèle.</p><span class="soon">Bientôt</span></li></ol>
+          <p class="follow">Pour ne manquer aucun épisode, suis-moi sur <a href="https://www.linkedin.com/in/joyce-itoua" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        </div>
       </div>
     </section>
 
